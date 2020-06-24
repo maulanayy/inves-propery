@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="142" height="142" viewBox="0 0 142 142">
+    <defs>
+        <style>
+            .prefix__cls-2{fill:none;stroke:#3cba92;stroke-width:3px;stroke-linecap:round;stroke-linejoin:round}
+        </style>
+    </defs>
+    <g id="prefix__ic_lanjut_studi" transform="translate(-312 -658)">
+        <g id="prefix__Group_104" data-name="Group 104" transform="translate(0 95)">
+            <g id="prefix__Rectangle_47" data-name="Rectangle 47" transform="translate(312 563)" style="stroke:#3cba92;stroke-width:3px;fill:none">
+                <rect width="142" height="142" rx="29" style="stroke:none"/>
+                <rect width="139" height="139" x="1.5" y="1.5" rx="27.5" style="fill:none"/>
+            </g>
+        </g>
+        <g id="prefix__Icon_feather-book" data-name="Icon feather-book" transform="translate(348 694)">
+            <path id="prefix__Path_170" d="M6 33.764a8.264 8.264 0 0 1 8.264-8.264h44.628" class="prefix__cls-2" data-name="Path 170" transform="translate(0 27.086)"/>
+            <path id="prefix__Path_171" d="M14.264 3h44.628v66.115H14.264A8.264 8.264 0 0 1 6 60.85V11.264A8.264 8.264 0 0 1 14.264 3z" class="prefix__cls-2" data-name="Path 171"/>
+        </g>
+        <path id="prefix__Icon_metro-pencil" d="M28.6 1.928a4.82 4.82 0 0 1 3.855 7.712l-1.928 1.928-6.748-6.748 1.928-1.928a4.8 4.8 0 0 1 2.893-.964zM4.5 24.1l-1.929 8.677 8.676-1.928 17.834-17.835-6.748-6.748zm19.628-11.219l-13.5 13.5-1.658-1.665 13.5-13.5 1.662 1.662z" data-name="Icon metro-pencil" transform="translate(366.429 705.072)" style="fill:#3cba92"/>
+    </g>
+</svg>

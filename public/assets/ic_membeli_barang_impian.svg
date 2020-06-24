@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="142" height="142" viewBox="0 0 142 142">
+    <defs>
+        <style>
+            .prefix__cls-2{fill:none;stroke:#3cba92;stroke-width:3px;stroke-linecap:round;stroke-linejoin:round}
+        </style>
+    </defs>
+    <g id="prefix__ic_membeli_barang_impian" transform="translate(-548 -437)">
+        <g id="prefix__Rectangle_49" data-name="Rectangle 49" transform="translate(548 437)" style="stroke:#3cba92;stroke-width:3px;fill:none">
+            <rect width="142" height="142" rx="29" style="stroke:none"/>
+            <rect width="139" height="139" x="1.5" y="1.5" rx="27.5" style="fill:none"/>
+        </g>
+        <g id="prefix__Icon_feather-shopping-bag" data-name="Icon feather-shopping-bag" transform="translate(582.5 468)">
+            <path id="prefix__Path_167" d="M15.371 3L4.5 17.5v50.729a7.248 7.248 0 0 0 7.248 7.248h50.733a7.248 7.248 0 0 0 7.248-7.248V17.5L58.857 3z" class="prefix__cls-2" data-name="Path 167"/>
+            <path id="prefix__Path_168" d="M4.5 9h65.229" class="prefix__cls-2" data-name="Path 168" transform="translate(0 8.495)"/>
+            <path id="prefix__Path_169" d="M40.991 15A14.5 14.5 0 1 1 12 15" class="prefix__cls-2" data-name="Path 169" transform="translate(10.619 16.991)"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,1562 @@
+@font-face {
+  font-family: louisGeorgeCafe;
+  src: url(../../public/font/Louis-George-Cafe.woff);
+}
+
+div {
+  font-family: "louisGeorgeCafe";
+}
+
+h2 {
+  opacity: 0.77;
+  font-family: Quicksand;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: 1.32px;
+  color: #000000;
+}
+
+h1 {
+  font-size: 128px;
+}
+
+.container {
+  margin-bottom: 25px;
+}
+.container-fluid {
+  background: #f6f8f7;
+}
+
+.card-link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.card-link:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.about-profile {
+  width: 139px;
+  height: 139px;
+  border-radius: 100px;
+  border: solid 3px #ffffff;
+}
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+span {
+  color: #3cba92;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+.title {
+  font-weight: 900;
+  font-family: Quicksand;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.24;
+  letter-spacing: normal;
+}
+
+.logo {
+  width: 180px;
+  object-fit: contain;
+  margin-left: 20px;
+}
+
+.card {
+  border: none;
+}
+
+/*--------------------------------------------------------------
+# carousel
+--------------------------------------------------------------*/
+
+.ant-carousel .slick-slide {
+  /* text-align: center; */
+  /* line-height: 160px; */
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.ant-carousel .slick-slide h3 {
+  color: #fff;
+}
+
+.ant-carousel .slick-dots-bottom {
+  /* bottom: 50px; */
+}
+
+.ant-carousel .slick-dots {
+  position: absolute;
+  right: 0;
+  /* bottom: 30; */
+  left: 0;
+  z-index: 10;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: 15%;
+  margin-left: 15%;
+  margin-bottom: 3%;
+  padding-left: 0;
+  list-style: none;
+}
+.ant-carousel .slick-dots li {
+  margin-left: 25px;
+  margin-top: 25px;
+}
+
+.ant-carousel .slick-dots li button {
+  display: block;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  padding: 0;
+  color: transparent;
+  font-size: 0;
+  background: #5777ba;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: all 0.5s;
+}
+
+.ant-carousel .slick-dots li.slick-active {
+  width: 2%;
+}
+
+.ant-carousel .slick-dots li.slick-active button {
+  background: #5777ba;
+  opacity: 1;
+  border-radius: 50%;
+}
+
+.testimonials {
+  margin-top: 15%;
+  font-family: "Quicksand";
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.42;
+  letter-spacing: 0.99px;
+  opacity: 0.7;
+  text-align: left;
+  color: #000000;
+}
+
+.author {
+  font-size: 20px;
+  font-weight: bolder;
+  text-align: right;
+}
+
+.author-img {
+  width: 300px;
+  height: 291px;
+  object-fit: contain;
+}
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  height: 82px;
+  transition: all 0.5s;
+  z-index: 997;
+  transition: all 0.5s;
+  padding: 20px 0;
+  /* background-color: #fff;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1); */
+}
+
+.dashboard-header {
+  margin-right: 100px;
+  /* z-index: -997; */
+  background: #f6f8f7;
+}
+
+#header.header-scrolled {
+  background-color: #fff;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+#header.logo img {
+  padding: 0;
+  margin: 0;
+  max-height: 40px;
+}
+
+@media (max-width: 992px) {
+  #header {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/* Desktop Navigation */
+.nav-menu,
+.nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-menu > ul > li {
+  position: relative;
+  white-space: nowrap;
+  float: left;
+}
+
+.nav-menu a {
+  display: block;
+  position: relative;
+  padding: 8px 15px 12px 15px;
+  transition: 0.3s;
+  font-family: "LouisGeorgeCafe";
+  font-size: 14px;
+  font-weight: bolder;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.08;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+.nav-menu a:hover,
+.nav-menu .active > a,
+.nav-menu li:hover > a {
+  color: #3cba92;
+  text-decoration: none;
+}
+
+.nav-menu .login a {
+  color: #4cbf9a;
+  font-size: 14px;
+  padding: 1px 20px 1px 20px;
+  margin: 5px;
+  border-radius: 20px;
+  background-color: #c3e9dd;
+}
+
+.nav-menu .login a:hover {
+  background: #3cba92;
+  color: #fff;
+}
+
+.nav-menu .register a {
+  color: #fff;
+  font-size: 14px;
+  padding: 1px 20px 1px 20px;
+  margin: 5px;
+  border-radius: 20px;
+  background-color: #3cba92;
+}
+.nav-menu .register a:hover {
+  background-color: #c3e9dd;
+  color: #3cba92;
+}
+
+.nav-menu .drop-down ul {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: calc(100% - 30px);
+  z-index: 99;
+  visibility: hidden;
+  padding: 10px 0;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  transition: ease all 0.3s;
+}
+
+.nav-menu .drop-down:hover > ul {
+  top: 100%;
+  visibility: visible;
+}
+
+.nav-menu .drop-down li {
+  min-width: 180px;
+  position: relative;
+}
+
+.nav-menu .drop-down ul a {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: none;
+  color: #3cba92;
+}
+
+.nav-menu .drop-down ul a:hover,
+.nav-menu .drop-down ul .active > a,
+.nav-menu .drop-down ul li:hover > a {
+  color: #3cba92;
+}
+
+.nav-menu .drop-down > a:after {
+  content: "\ea99";
+  font-family: "louisGeorgeCafe";
+  padding-left: 5px;
+}
+
+.nav-menu .drop-down .drop-down ul {
+  top: 0;
+  left: calc(100% - 30px);
+}
+
+.nav-menu .drop-down .drop-down:hover > ul {
+  top: 0;
+  left: 100%;
+}
+
+.nav-menu .drop-down .drop-down > a {
+  padding-right: 35px;
+}
+
+.nav-menu .drop-down .drop-down > a:after {
+  content: "\eaa0";
+  font-family: "louisGeorgeCafe";
+  position: absolute;
+  right: 15px;
+}
+
+@media (max-width: 1366px) {
+  .nav-menu .drop-down .drop-down ul {
+    left: -90%;
+  }
+  .nav-menu .drop-down .drop-down:hover > ul {
+    left: -100%;
+  }
+  .nav-menu .drop-down .drop-down > a:after {
+    content: "\ea9d";
+  }
+}
+
+/*--------------------------------------------------------------
+# Section One
+--------------------------------------------------------------*/
+
+#section-one {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 140px 0 50px 0;
+  font-family: "Quicksand";
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.26;
+  letter-spacing: normal;
+  text-align: left;
+  margin-bottom: 20px;
+  /* margin-top: 10px; */
+}
+
+#section-one .register {
+  margin-top: 80px;
+}
+
+#section-one .form-group {
+  width: 500px;
+}
+
+#section-one p {
+  opacity: 0.7;
+  font-size: 15px;
+  width: 500px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: justify;
+  color: #000000;
+}
+
+#section-one .info h4 {
+  font-size: 29px;
+}
+
+.start-button {
+  padding: 12px 30px 12px 30px;
+  width: 300px;
+  height: 81px;
+  background-color: #3cba92;
+  border-radius: 15px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  position: relative;
+}
+
+.ojk {
+  width: 90px;
+  height: 60px;
+  object-fit: contain;
+  margin-left: 20px;
+}
+
+.certified {
+  width: 50px;
+  height: 50px;
+  object-fit: scale-down;
+  margin-left: 20px;
+  margin-bottom: 9px;
+}
+
+.button {
+  color: #fff;
+  font-size: 16px;
+  padding: 5px 25px 5px 25px;
+  margin: 5px;
+  border-radius: 20px;
+  background-color: #3cba92;
+  border-color: #3cba92;
+  margin-right: 30px;
+}
+
+.button button:hover {
+  color: #5777ba;
+  text-decoration: none;
+}
+
+#section-one .form {
+  width: 400px;
+}
+
+#section-one .forgot {
+  font-size: 13px;
+}
+
+#secton-one .back {
+  text-decoration: none;
+  color: #000000;
+}
+
+/* #section-one .col-lg-12 {
+  margin-top: 10px;
+} */
+
+@media (max-width: 991px) {
+  #section-one {
+    text-align: center;
+  }
+
+  #section-one .download-btn + .download-btn {
+    margin: 0 10px;
+  }
+  #section-one .section-one-img {
+    text-align: center;
+  }
+  #section-one .section-one-img img {
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  #section-one h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  #section-one h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+  #section-one .section-one-img img {
+    width: 70%;
+  }
+}
+
+@media (max-width: 575px) {
+  #section-one .section-one-img img {
+    width: 80%;
+  }
+}
+
+/*--------------------------------------------------------------
+# Section Two
+--------------------------------------------------------------*/
+
+/* #section-two{
+ 
+  background-size:auto;
+  height: 800px;
+} */
+
+/* .side-img {
+  height: 800px ;
+  object-fit: cover;
+  border-radius: 20px;
+} */
+
+#section-two {
+  width: 100%;
+  background: url(../../public/assets/bulding.png);
+  padding-top: 120px;
+  background-repeat: no-repeat;
+  background-size: 50% 100%;
+  object-fit: contain;
+  background-position-x: -65%;
+  overflow: hidden;
+}
+
+#section-two .how-to-img {
+  width: 175px;
+  height: 214px;
+  object-fit: scale-down;
+  margin: 20px;
+}
+
+#section-two p {
+  text-align: justify;
+}
+@media (max-width: 768px) {
+  #section-two h4 {
+    font-size: 28px;
+    text-align: center;
+    line-height: 36px;
+  }
+}
+
+@media (max-width: 575px) {
+  #section-one .section-one-img img {
+    width: 80%;
+  }
+}
+
+/*--------------------------------------------------------------
+# Section Three
+--------------------------------------------------------------*/
+
+#section-three {
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  background: url(../../public/assets/Flek2V.png),
+    url(../../public/assets/FlekV.png);
+  background-size: 287px 257px, 327px 257px;
+  background-position: left bottom, right top;
+  background-position-x: -65px, 95%;
+  background-position-y: bottom, top;
+  background-repeat: no-repeat;
+  padding: 125px 0 125px 0;
+  /* margin-top: 10px; */
+}
+
+#section-three p {
+  opacity: 0.7;
+  font-size: 17px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #000000;
+}
+/*--------------------------------------------------------------
+# Section Four
+--------------------------------------------------------------*/
+
+#section-four {
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  background-size: unset;
+  padding: 50px 0 50px 0;
+  /* margin-top: 10px; */
+}
+
+/*--------------------------------------------------------------
+# Section Five
+--------------------------------------------------------------*/
+
+#section-five {
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  background-size: unset;
+  padding: 80px 0 50px 0;
+  /* margin-top: 10px; */
+}
+
+/*--------------------------------------------------------------
+# Section Five
+--------------------------------------------------------------*/
+
+#section-six {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  background-size: unset;
+  padding: 20px 0 50px 0;
+  border-radius: 50px;
+  font-family: Quicksand;
+  /* font-size: 36px; */
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2);
+}
+
+#section-six .count-number {
+  margin-top: 50px;
+}
+
+#section-six h1 {
+  font-size: 128px;
+}
+
+/*--------------------------------------------------------------
+# Section Five
+--------------------------------------------------------------*/
+
+#section-seven {
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  background-size: unset;
+  padding: 80px 0 50px 0;
+  /* margin-top: 10px; */
+}
+
+/*--------------------------------------------------------------
+# Section Five
+--------------------------------------------------------------*/
+
+#section-eight {
+  width: 100%;
+  height: 450px;
+  position: relative;
+  overflow: hidden;
+  background-size: unset;
+  padding: 80px 0 50px 0;
+  background: url(../../public/assets/FlekH.png);
+  background-size: 287px 350px;
+  background-position: left top;
+  background-position-x: -12%;
+  background-position-y: 0;
+  background-repeat: no-repeat;
+}
+
+.video-carousel {
+  margin-bottom: 150px;
+}
+
+.video-card {
+  height: 250px;
+  width: 300px;
+  margin-right: 200px;
+  margin-left: 200px;
+  padding-top: 80px;
+  text-align: "center";
+  background: #4cbf9a;
+  color: #fff;
+  font-size: "12px";
+  text-transform: "uppercase";
+  border-radius: 10px;
+}
+
+/*--------------------------------------------------------------
+# Section Five
+--------------------------------------------------------------*/
+
+#section-nine {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-size: unset;
+  padding: 80px 0 40px 0;
+  margin-top: 0;
+}
+
+#section-nine h4 {
+  opacity: 0.77;
+  font-family: Quicksand;
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: 1.32px;
+  text-align: left;
+  color: #000000;
+}
+
+#section-nine img {
+  height: 679px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  #section-nine img {
+    width: 70%;
+  }
+}
+
+@media (max-width: 575px) {
+  #section-nine img {
+    width: 80%;
+  }
+}
+
+/*--------------------------------------------------------------
+# Section Ten
+--------------------------------------------------------------*/
+
+#section-ten {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-size: unset;
+  padding: 0 0 90px 0;
+  /* margin-top: 10px; */
+}
+
+.logo-square {
+  width: 100%;
+  height: 64px;
+  object-fit: contain;
+}
+
+.logo-rectangle {
+  width: 115px;
+  height: 74px;
+  object-fit: cover;
+  margin: 35px 0 0 25px;
+}
+
+@media (max-width: 768px) {
+  #section-ten img {
+    width: 70%;
+  }
+}
+
+@media (max-width: 575px) {
+  #section-ten img {
+    width: 80%;
+  }
+}
+
+/*--------------------------------------------------------------
+# Section Faq
+--------------------------------------------------------------*/
+
+#section-faq {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 25px 0 5px 0;
+  font-family: "LouisGeorgeCafe";
+  font-weight: bolder;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.26;
+  letter-spacing: normal;
+  text-align: left;
+}
+
+#section-faq .bottom {
+  margin-bottom: 150px;
+}
+
+#section-faq .content {
+  margin: 10px 0 100px 0;
+}
+
+#section-faq .container-border {
+  border-radius: 30px;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
+}
+
+.search {
+  border-radius: 20px;
+  /* width: 300px; */
+}
+
+#section-faq .title-faq h1 {
+  font-size: 56px;
+}
+
+#section-faq .panel {
+  border-radius: 9px;
+  background-color: #3cba92;
+  margin-bottom: 20px;
+  /* width: 90%; */
+}
+
+.panel p {
+  font-family: LouisGeorgeCafe;
+  font-size: 12px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+.panel .ant-collapse-header {
+  color: #ffffff !important;
+
+  border: #ffffff;
+}
+
+.panel .content-box {
+  border-color: #3cba92;
+  border-radius: 15px;
+}
+
+/*--------------------------------------------------------------
+# Main Dashboard
+--------------------------------------------------------------*/
+#wrapper {
+  display: flex;
+}
+
+#wrapper #content-wrapper {
+  background-color: #f6f8f7;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#wrapper #content-wrapper #content {
+  flex: 1 0 auto;
+}
+
+.main-dashboard {
+  font-family: Quicksand;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.23;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  /* background-color: #fff; */
+  float: right;
+  margin: 28px 20px 15px 75px;
+  /* margin: 28px 0px 15px 30px; */
+}
+
+.url {
+  font-family: "LouisGeorgeCafe";
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  opacity: 0.4;
+  margin-left: 15px;
+}
+
+.banner-button {
+  color: #000000;
+  font-size: 16px;
+  padding: 5px 30px 5px 30px;
+  margin: 5px;
+  border-radius: 20px;
+  background-color: #fff;
+  font-family: "LouisGeorgeCafe";
+  font-size: 14px;
+  line-height: 2.08;
+  letter-spacing: normal;
+  text-align: left;
+}
+
+/* .main-dashboard a:hover {
+  color: #3cba92;
+  text-decoration: none;
+  opacity: 1;
+} */
+
+.banner {
+  height: 180px;
+  background: #bff2e2;
+  margin: 20px 50px 0 0;
+  border-radius: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  font-size: 22px;
+  padding: 30px 0 0 35px;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+.col-md-5half {
+  width: 44%;
+}
+
+.col-lg-11half {
+  width: 98%;
+}
+
+.col-md-3half {
+  width: 22%;
+}
+.col-lg-3 {
+  padding: 10px 0 50px 0;
+}
+
+.card-balance {
+  background: #ffffff;
+  margin: 1rem 0 0 1rem;
+  border-radius: 30px;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
+  padding: 30px 0 30px 25px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  font-size: 17px;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+.card-proyek-counter {
+  width: 220px;
+  border-radius: 27px;
+  background-color: #1f5c42;
+  color: #fff;
+  margin: 5px 15px 15px 15px;
+}
+
+.card-proyek-counter .number {
+  color: #fff;
+  font-size: 40px;
+  padding-top: 20px;
+}
+
+.card-list {
+  width: 220px;
+  height: 320px;
+  border-radius: 27px;
+  background-color: #fff;
+  color: #000000;
+  margin: 5px 15px 15px 15px;
+  border-radius: 27px;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
+  font-family: LouisGeorgeCafe;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: left;
+}
+
+.card-list .title-active {
+  width: 50px;
+  font-size: 10px;
+  color: #fff;
+  border-radius: 11px;
+  background-color: #3cba92;
+  margin-left: 20px;
+  font-weight: 900;
+  padding: 3px 15px 3px 15px;
+}
+
+.card-list .title-done {
+  width: 60px;
+  font-size: 10px;
+  color: #fff;
+  border-radius: 11px;
+  background-color: #d85445;
+  margin-left: 20px;
+  font-weight: 900;
+  padding: 3px 15px 3px 15px;
+}
+
+.card-list .card-title {
+  font-size: 13px;
+  font-weight: bolder;
+}
+
+.card-list .card-img {
+  /* width: 200px; */
+  height: 118px;
+  object-fit: cover;
+  background-position: top;
+}
+
+.card-list .card-body {
+  line-height: 1.75;
+  font-size: 12px;
+  padding: 5px 0 0 10px;
+}
+
+.light-button a {
+  color: #4cbf9a;
+  font-size: 10px;
+  padding: 3px 10px 3px 10px;
+  border-radius: 20px;
+  background-color: #c3e9dd;
+}
+
+.light-button a:hover {
+  background: #3cba92;
+  color: #fff;
+}
+
+.dark-button a {
+  color: #fff;
+  font-size: 10px;
+  padding: 3px 10px 3px 10px;
+  border-radius: 20px;
+  background-color: #3cba92;
+}
+
+.dark-button a:hover {
+  background: #c3e9dd;
+  color: #4cbf9a;
+}
+
+.idr {
+  font-size: 18px;
+  line-height: 0.96;
+}
+
+.withdraw-button {
+  color: #fff;
+  font-size: 16px;
+  padding: 5px 30px 5px 30px;
+  border-radius: 17px;
+  background-color: #ff5c4a;
+  font-family: "LouisGeorgeCafe";
+  /* margin-right: 35px; */
+  font-size: 14px;
+  line-height: 2.08;
+  letter-spacing: normal;
+  text-align: left;
+}
+
+.card-info {
+  background: #ffffff;
+  margin: 1rem 1.2rem 0 0;
+  border-radius: 30px;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
+  padding: 20px 0 0 25px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  font-size: 16px;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+.banner-img {
+  width: 220px;
+  float: right;
+  object-fit: contain;
+  background-position-y: top;
+}
+
+.data-info {
+  background: #ffffff;
+  margin: 25px 0 25px 0;
+  border-radius: 30px;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  font-size: 16px;
+  padding: 30px 0 30px 25px;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+/*--------------------------------------------------------------
+# Side bar Menu
+--------------------------------------------------------------*/
+
+/* Right Side bar */
+.right-sidebar {
+  width: 458px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 998; /* Behind the navbar */
+  padding: 0;
+  background: #fff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.right-sidebar-sticky {
+  margin-top: 50px;
+  top: 58px;
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.right-sidebar .profile img {
+  width: 160px;
+  object-fit: contain;
+}
+
+.notification {
+  margin-top: 25px;
+  font-family: LouisGeorgeCafe;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+.notification-list {
+  margin-top: 5px;
+}
+
+.notification-info {
+  font-size: 12px;
+  padding-left: 0;
+}
+
+.notification-date {
+  font-size: 9px;
+  margin-top: 3px;
+  padding-left: 0;
+}
+
+.remove-notification {
+  margin-top: 5px;
+  font-size: 12px;
+}
+.right-sidebar .counter {
+  background-color: #ffba44;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #ffffff;
+  width: 28px;
+  height: 21px;
+}
+
+.bank-account {
+  margin: 30px 0 0 15px;
+  font-family: LouisGeorgeCafe;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+.bank-account .bank-list {
+  height: 130px;
+  border-radius: 30px;
+  margin: 10px 15px 5px 0px;
+  padding: 15px 0 0 15px;
+  opacity: 0.41;
+  background-color: #000000;
+  font-family: LouisGeorgeCafe;
+  font-size: 9.5px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.6;
+  letter-spacing: 0.45px;
+  text-align: left;
+  color: #ffffff;
+}
+/* Left Side bar */
+.left-sidebar {
+  width: 20rem;
+  padding: 0;
+  background: #fff;
+  /* box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2); */
+}
+
+.left-sidebar-sticky {
+  top: 18px;
+  padding-top: 0.5rem;
+}
+
+.left-sidebar-menu {
+  margin: 250px 0 50px 0;
+}
+
+.link {
+  text-decoration: none;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  display: inline-block;
+  margin: 0 0 15px 0;
+  font-size: 14px;
+  opacity: 0.6;
+  color: #000000;
+}
+
+.link.active {
+  color: #000000;
+}
+
+.link:hover {
+  color: #000000;
+  opacity: 1;
+  text-decoration: none;
+  background-image: linear-gradient(to right, #3cba92, #3cba92);
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: 25% 3px;
+}
+
+.link-exit {
+  color: red;
+}
+
+.link-exit:hover {
+  color: red;
+  opacity: 1;
+}
+
+.helper {
+  height: 100px;
+  border-radius: 27px;
+  margin: 0 5px 20px 5px;
+  padding: 15px 0 0 15px;
+  background-color: #1f5c42;
+  font-family: LouisGeorgeCafe;
+  font-size: 9.5px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.6;
+  letter-spacing: 0.45px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.helper-info {
+  margin-bottom: 8px;
+}
+
+.helper-button {
+  color: #fff;
+  font-size: smaller;
+  padding: 5px 13px 5px 13px;
+  margin: 5px;
+  border-radius: 20px;
+  background-color: #1f5c42;
+  border-color: #fff;
+  border-style: solid;
+  border-width: thin;
+  margin-right: 30px;
+}
+
+/*--------------------------------------------------------------
+# Journey
+--------------------------------------------------------------*/
+
+#journey {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 140px 0 50px 0;
+  font-family: "Quicksand";
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.26;
+  letter-spacing: normal;
+  text-align: left;
+  /* margin-top: 10px; */
+}
+
+#journey .back {
+  font-family: Quicksand;
+  font-size: 10px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.8;
+  letter-spacing: normal;
+  text-align: left;
+  padding: 6px 15px 6px 15px;
+  border-radius: 12px;
+  background-color: rgba(60, 186, 146, 0.4);
+  color: #3cba92;
+}
+
+#journey .next {
+  opacity: 0.4;
+  font-family: Quicksand;
+  font-size: 10px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.8;
+  letter-spacing: normal;
+  text-align: left;
+  padding: 6px 12px 6px 12px;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(127, 137, 161, 1);
+}
+
+/*--------------------------------------------------------------
+# Properti
+--------------------------------------------------------------*/
+
+#properti {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 140px 0 50px 0;
+  font-family: "LouisGeorgeCafe";
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.66;
+  letter-spacing: normal;
+  text-align: left;
+  /* margin-top: 10px; */
+}
+
+#properti .filter {
+  height: 600px;
+  border-radius: 15px;
+  padding-left: 20px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#properti .btn-filter {
+  padding: 1px 20px 1px 20px;
+  border-radius: 16px;
+  border: solid 1px #707070;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 10px;
+}
+
+#properti .btn-filter:hover {
+  color: #3cba92;
+  border-color: #3cba92;
+  text-decoration: none;
+}
+
+.card-properti {
+  border-radius: 20px;
+  color: #fff;
+  margin: 5px 15px 15px 15px;
+  padding-bottom: 5px;
+  font-family: LouisGeorgeCafe;
+  font-size: 12px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}
+
+.card-properti .status {
+  margin: 13px 10px 13px 0;
+  padding: 2px 18px 2px 18px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #3cba92;
+  font-size: 10px;
+}
+
+.card-properti .content {
+  margin-top: 95%;
+}
+
+.card-properti .location {
+  font-size: 10px;
+}
+
+.card-properti .pin {
+  width: 10px;
+  height: 10px;
+  object-fit: contain;
+}
+
+.ant-progress-line {
+  position: relative;
+  width: 100%;
+  font-size: 14px;
+}
+
+.ant-progress-outer {
+  display: inline-block;
+  width: 87%;
+  margin-left: 7px;
+  padding-right: 0;
+}
+
+.ant-progress-inner {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  background-color: #f5f5f5;
+  border-radius: 100px;
+  height: 12px;
+  padding: 2px;
+}
+
+.ant-progress-success-bg,
+.ant-progress-bg {
+  position: relative;
+  background-color: #3cba92;
+  border-radius: 100px;
+  transition: all 0.4s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
+}
+
+.ant-progress-status-success .ant-progress-bg {
+  background-color: #ffba44;
+}
+
+/*--------------------------------------------------------------
+# detail property
+--------------------------------------------------------------*/
+
+#properti .galery {
+  height: 300px;
+  border-radius: 15px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+}
+
+#properti .description {
+  /* height: 450px; */
+  font-size: 12px;
+  border-radius: 15px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+  padding: 15px 25px 15px 25px;
+}
+
+#properti .investment {
+  border-radius: 15px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+  padding: 15px 25px 18px 25px;
+  font-weight: 900;
+  font-size: 12px;
+}
+
+#properti .nominal {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  padding: 8px 0 3px 0;
+}
+
+#properti .developer {
+  border-radius: 15px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+  padding: 15px 25px 15px 25px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+#properti .maps {
+  width: 370px;
+  object-fit: contain;
+}
+
+/*--------------------------------------------------------------
+# Our Team
+--------------------------------------------------------------*/
+#our-team {
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  background: #fff;
+  padding: 100px 0 300px 0;
+  color: #eee;
+  font-size: 14px;
+  background: url(../../public/assets/footer-1.png),url(../../public/assets/footer-2.png);
+  background-repeat: no-repeat;
+  background-position-y: -10%,350px;
+  background-position-x: 0,-100px;
+  background-size: contain,cover;
+}
+
+#footer .logo {
+  width: 170px;
+  height: 43px;
+}
+
+#footer .footer-info {
+  margin: 15px 0 0 35px;
+}
+
+#footer p {
+  opacity: 0.8;
+  font-family: "LouisGeorgeCafe";
+  font-size: 12px;
+  font-weight: bolder;
+  font-stretch: normal;
+  color: #000000;
+  font-style: normal;
+  /* line-height: 1.92; */
+  letter-spacing: 0.72px;
+  text-align: justify;
+}
+
+#footer .pt {
+  margin-top: 35px;
+  opacity: 0.8;
+  font-family: "LouisGeorgeCafe";
+  font-size: 12px;
+  font-weight: bold;
+  font-stretch: normal;
+  color: #000000;
+  font-style: normal;
+  line-height: 2.92;
+  letter-spacing: 0.72px;
+  text-align: left;
+}
+
+#footer .contact {
+  margin-left: 30px;
+}
