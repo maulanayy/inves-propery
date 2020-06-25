@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="142" height="142" viewBox="0 0 142 142">
+    <defs>
+        <style>
+            .prefix__cls-1,.prefix__cls-4{fill:none}.prefix__cls-1{stroke:#3cba92;stroke-width:3px}.prefix__cls-3{stroke:none}
+        </style>
+    </defs>
+    <g id="prefix__ic_nikah" transform="translate(-784 -658)">
+        <g id="prefix__Rectangle_176" class="prefix__cls-1" data-name="Rectangle 176" transform="translate(784 658)">
+            <rect width="142" height="142" class="prefix__cls-3" rx="29"/>
+            <rect width="139" height="139" x="1.5" y="1.5" class="prefix__cls-4" rx="27.5"/>
+        </g>
+        <g id="prefix__Ellipse_109" class="prefix__cls-1" data-name="Ellipse 109" transform="translate(825 706)">
+            <circle cx="30" cy="30" r="30" class="prefix__cls-3"/>
+            <circle cx="30" cy="30" r="28.5" class="prefix__cls-4"/>
+        </g>
+        <g id="prefix__Ellipse_110" class="prefix__cls-1" data-name="Ellipse 110" transform="translate(831 712)">
+            <circle cx="24" cy="24" r="24" class="prefix__cls-3"/>
+            <circle cx="24" cy="24" r="22.5" class="prefix__cls-4"/>
+        </g>
+        <path id="prefix__Icon_simple-ruby" d="M12.575.116a2.651 2.651 0 0 1 2.389 2.976l.009-.019-.852 11.16-11.071.759h.01A2.745 2.745 0 0 1 0 12l1.026-1.872 1.759 4.109.314.731 1.75-5.7H4.83l.01-.019 5.774 1.851-.871-3.391-.618-2.433 5.5-.355-.381-.321-3.95-3.22L12.577.109v.006zM0 11.973zm3.2-8.744c2.222-2.2 5.089-3.507 6.19-2.4S9.325 4.642 7.1 6.845 2.044 10.422.945 9.313.973 5.435 3.2 3.231z" data-name="Icon simple-ruby" transform="rotate(45.97 -387.634 1355.27)" style="fill:#3cba92"/>
+    </g>
+</svg>

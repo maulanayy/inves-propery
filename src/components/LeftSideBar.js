@@ -6,15 +6,14 @@ import {
   UserOutlined,
   ExportOutlined,
 } from "@ant-design/icons";
-import Logo from "../../public/assets/logo/logo.png";
-
+import { images } from "../config";
 const LeftSideBar = () => {
   return (
     <nav className="left-sidebar">
       <ul className="nav flex-column">
         <li>
           <NavLink to="/dashboard">
-            <img src={Logo} alt="" className="img-fluid logo" />
+            <img src={images.Logo} alt="" className="img-fluid logo" />
           </NavLink>
         </li>
       </ul>

@@ -9,12 +9,12 @@ import {
   Graph,
   Properties,
 } from "../../components";
-
-import Logo from "../../../public/assets/logo/logo.png";
-import ImgSecFour from "../../../public/assets/img-sec-4.png";
-import AssetThree from "../../../public/assets/asset-3.png";
-import AssetFive from "../../../public/assets/asset-5.png";
-import AssetTwo from "../../../public/assets/asset-2.png";
+import { images } from "../../config"
+// import Logo from "../../../public/assets/logo/logo.png";
+// import ImgSecFour from "../../../public/assets/img-sec-4.png";
+// import AssetThree from "../../../public/assets/asset-3.png";
+// import AssetFive from "../../../public/assets/asset-5.png";
+// import AssetTwo from "../../../public/assets/asset-2.png";
 
 import { NavLink } from "react-router-dom";
 import { Carousel } from "antd";
@@ -37,7 +37,7 @@ const Views = ({ statistics, supports, opinions, projects }) => {
             </div>
             <div className="col-lg-3 ml-5 mt-5">
               <img
-                src={ImgSecFour}
+                src={images.ImgSecFour}
                 className="align-bottom"
                 style={{
                   width: 205,
@@ -120,7 +120,7 @@ const Views = ({ statistics, supports, opinions, projects }) => {
             <div className="col-lg-10  text-right">
               <h2>
                 <img
-                  src={AssetTwo}
+                  src={images.AssetTwo}
                   className="content-fluid"
                   style={{
                     width: 50,
@@ -207,7 +207,7 @@ const Views = ({ statistics, supports, opinions, projects }) => {
             </div>
             <div className="col-lg-8 d-lg-flex flex-lg-column justify-content-top align-items-stretch pt-5 pt-lg-0">
               <img
-                src={AssetThree}
+                src={images.AssetThree}
                 className="img-fluid"
                 style={{
                   width: "90%",
@@ -238,11 +238,11 @@ const Views = ({ statistics, supports, opinions, projects }) => {
         <div className="container">
           <div className="row">
             <div className="col-lg-3 col-md-6 ">
-              <img src={AssetFive} className="img-fluid" alt="" />
+              <img src={images.AssetFive} className="img-fluid" alt="" />
             </div>
             <div className="col-lg-3 col-md-6 footer-info">
               <div className="row">
-                <img src={Logo} className="img-fluid logo" alt="" />
+                <img src={images.Logo} className="img-fluid logo" alt="" />
                 <div className="pt">PT Berkah Inovasi Nusantara 2020</div>
               </div>
             </div>

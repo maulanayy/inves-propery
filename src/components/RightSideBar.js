@@ -1,5 +1,5 @@
 import React from "react";
-import profileImg from "../../public/assets/profile.png";
+import { images } from "../config";
 import { NavLink } from "react-router-dom";
 
 // const showModal = () => {
@@ -11,7 +11,7 @@ const RightSideBar = () => {
     <nav className="right-sidebar">
       <div className="right-sidebar-sticky">
         <div className="profile text-center ">
-          <img src={profileImg} className="img-fluid" alt=""/>
+          <img src={images.profileImg} className="img-fluid" alt=""/>
           <p>
             Ilham Akbar <br />
             98ilham.akbar@gmail.com <br />

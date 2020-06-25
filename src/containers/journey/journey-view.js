@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Journey from "../../../public/assets/journey.png";
+import { images } from "../../config";
 
 const View = () => {
   return (
@@ -37,7 +37,7 @@ const View = () => {
                 </div>
               </div>
               <div className="col-lg-4 ">
-                <img src={Journey} className="img-fluid" alt="" />
+                <img src={images.Journey7} className="img-fluid" alt="" />
               </div>
             </div>
           </div>

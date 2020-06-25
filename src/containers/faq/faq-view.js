@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../components/Navbar";
-import Ilustrasi from "../../../public/assets/illustrasi.png";
+import { images } from "../../config"
 import { Collapse } from "antd";
 
 const { Panel } = Collapse;
@@ -34,7 +34,7 @@ const View = ({ faqs }) => {
                 </div>
               </div>
               <div className="col-lg-4 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2">
-                <img src={Ilustrasi} className="img-fluid" alt="" />
+                <img src={images.Ilustrasi} className="img-fluid" alt="" />
               </div>
             </div>
           </div>

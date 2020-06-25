@@ -2,8 +2,7 @@ import React from "react";
 import { Navbar } from "../../components";
 import { Progress, InputNumber } from "antd";
 import { FileFilled } from "@ant-design/icons";
-import map from "../../../public/assets/maps.jpg";
-import logo from "../../../public/assets/Delution_Logo.jpg";
+import { images } from "../../config"
 
 const View = ({project}) => {
   console.log(project)
@@ -100,7 +99,7 @@ const View = ({project}) => {
               <div className="developer mt-4">
                 Tentang Developer
                 <img
-                  src={logo}
+                  src={images.delution_logo}
                   style={{
                     width: 150,
                     objectFit: "contain",
@@ -131,11 +130,11 @@ const View = ({project}) => {
                 Lokasi Proyek
                 <div className="row">
                   <div className="col-md-8">
-                    <img src={map} className="maps" alt="" />
+                    <img src={images.map} className="maps" alt="" />
                   </div>
                   <div className="col-md-4">
                     <img
-                      src={map}
+                      src={images.map}
                       style={{ objectFit: "contain", width: 150 }}
                       alt=""
                     />
