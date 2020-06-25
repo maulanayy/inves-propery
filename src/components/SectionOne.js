@@ -1,8 +1,5 @@
 import React from "react";
-
-import IntroOne from "../../public/assets/intro1.png";
-import LogoOjk from "../../public/assets/logo/LogoOJK.png";
-import LogoCertified from "../../public/assets/logo/LogoCertified.png";
+import { images } from "../config";
 
 const SectionOne = () => {
   return (
@@ -24,14 +21,14 @@ const SectionOne = () => {
                   <a href="#" className="start-button">
                     Mulai Sekarang
                   </a>
-                  <img src={LogoOjk} className="ojk" alt="" />
-                  <img src={LogoCertified} className="certified" alt="" />
+                  <img src={images.LogoOjk} className="ojk" alt="" />
+                  <img src={images.LogoCertified} className="certified" alt="" />
                 </div>
               </div>
             </div>
           </div>
           <div className="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 ">
-            <img src={IntroOne} className="img-fluid" alt="" />
+            <img src={images.IntroOne} className="img-fluid" alt="" />
           </div>
         </div>
       </div>

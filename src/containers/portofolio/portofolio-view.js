@@ -3,7 +3,7 @@ import LeftSideBar from "../../components/LeftSideBar";
 import RightSideBar from "../../components/RightSideBar";
 import NavbarDashboard from "../../components/NavbarDashboard";
 
-import cardImg from "../../../public/assets/card-img.png";
+import {images} from "../../config";
 
 const View = () => {
   return (
@@ -53,7 +53,7 @@ const View = () => {
                     <h5 className="card-title pl-3 pt-1 ">
                       Panorama Cihanjuang
                     </h5>
-                    <img src={cardImg} className="card-img" alt="" />
+                    <img src={images.cardImg} className="card-img" alt="" />
                     <div className="card-body">
                       <div className="row">
                         <div className="col">saldo</div>
@@ -85,7 +85,7 @@ const View = () => {
                   <div className="col-lg-3 card-list mr-4">
                     <div className="title-done ">Selesai</div>
                     <h5 className="card-title pl-3 pt-1 ">Cluster Linaya</h5>
-                    <img src={cardImg} className="card-img" alt="" />
+                    <img src={images.cardImg} className="card-img" alt="" />
                     <div className="card-body">
                       <div className="row">
                         <div className="col">saldo</div>
@@ -125,7 +125,7 @@ const View = () => {
                     <h5 className="card-title pl-2 pt-1 ">
                       Serenity Residence Bandung
                     </h5>
-                    <img src={cardImg} className="card-img" alt="" />
+                    <img src={images.cardImg} className="card-img" alt="" />
                     <div className="card-body">
                       <div className="row">
                         <div className="col">saldo</div>

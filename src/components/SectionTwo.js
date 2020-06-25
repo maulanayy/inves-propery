@@ -1,7 +1,5 @@
 import React from "react";
-import IntroTwo from "../../public/assets/Intro2.png";
-import IntroThree from "../../public/assets/Intro3.png";
-import IntroFour from "../../public/assets/Intro4.png";
+import { images } from "../config";
 
 const SectionTwo = () => {
   return (
@@ -18,7 +16,7 @@ const SectionTwo = () => {
         <div className="row">
           <div className="col-md-2 side"></div>
           <div className="col-lg-3">
-            <img src={IntroTwo} className="how-to-img" alt=""/>
+            <img src={images.IntroTwo} className="how-to-img" alt=""/>
             <h4>Cari</h4>
             <p>
               Temukan jenis atau proyek properti yang Anda inginkan dari daftar
@@ -28,7 +26,7 @@ const SectionTwo = () => {
             </p>
           </div>
           <div className="col-lg-3 ml-4">
-            <img src={IntroFour} className="how-to-img" alt=""/>
+            <img src={images.IntroFour} className="how-to-img" alt=""/>
             <h4>Investasi</h4>
             <p>
               Investasikan uang Anda pada projek properti kami secara online.
@@ -37,7 +35,7 @@ const SectionTwo = () => {
             </p>
           </div>
           <div className="col-lg-3 ml-4">
-            <img src={IntroThree} className="how-to-img" alt=""/>
+            <img src={images.IntroThree} className="how-to-img" alt=""/>
             <h4>Bagi Hasil</h4>
             <p>
               Dapatkan potensi passive income secara periodik dari harga sewa

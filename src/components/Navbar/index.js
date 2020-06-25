@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Logo from "../../../public/assets/logo/logo.png";
+import { images } from "../../config";
 
 // const [scrolled, setScrolled] = useState(false);
 
@@ -10,7 +10,7 @@ const Navbar = () => {
       <div className="container d-flex ">
         <div className="logo mr-auto">
           <NavLink to="/">
-            <img src={Logo} alt="" className="img-fluid" />
+            <img src={images.Logo} alt="" className="img-fluid" />
           </NavLink>
         </div>
 

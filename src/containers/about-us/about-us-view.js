@@ -1,7 +1,9 @@
 import React from "react";
 import { Navbar } from "../../components";
-import IntroOne from "../../../public/assets/group_presentation.png";
-import IntroTwo from "../../../public/assets/Intro2.png";
+import { images } from "../../config"
+// import {default as IntroOne} from "../../../public/assets/group_presentation.png";
+// import {default as IntroTwo} from "../../../public/assets/Intro2.png";
+
 
 const View = () => {
   return (
@@ -44,7 +46,7 @@ const View = () => {
               </p>
             </div>
             <div className="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 ">
-              <img src={IntroOne} className="img-fluid mt-4" alt="" />
+              <img src={images.IntroOne} className="img-fluid mt-4" alt="" />
             </div>
           </div>
         </div>
@@ -55,7 +57,7 @@ const View = () => {
             <div className="col-3 mr-5 mb-5">
               <div className="card">
                 <div className="card-body">
-                  <img src={IntroTwo} className="card-img-top about-profile" alt=""/>
+                  <img src={images.IntroTwo} className="card-img-top about-profile" alt=""/>
                   <h5 className="card-title">
                     <span>Basytyan K. Pratama</span>
                   </h5>
@@ -67,7 +69,7 @@ const View = () => {
             <div className="col-3 ml-5 mr-5 mb-5">
               <div className="card">
                 <div className="card-body">
-                  <img src={IntroTwo} className="card-img-top about-profile" alt=""/>
+                  <img src={images.IntroTwo} className="card-img-top about-profile" alt=""/>
                   <h5 className="card-title">
                     <span>Basytyan K. Pratama</span>
                   </h5>
@@ -78,7 +80,7 @@ const View = () => {
             <div className="col-3 ml-5 mb-5">
               <div className="card">
                 <div className="card-body">
-                  <img src={IntroTwo} className="card-img-top about-profile" alt=""/>
+                  <img src={images.IntroTwo} className="card-img-top about-profile" alt=""/>
                   <h5 className="card-title">
                     <span>Basytyan K. Pratama</span>
                   </h5>
@@ -90,7 +92,7 @@ const View = () => {
             <div className="col-3 mr-5 mb-5">
               <div className="card">
                 <div className="card-body">
-                  <img src={IntroTwo} className="card-img-top about-profile" alt=""/>
+                  <img src={images.IntroTwo} className="card-img-top about-profile" alt=""/>
                   <h5 className="card-title">
                     <span>Basytyan K. Pratama</span>
                   </h5>
@@ -102,7 +104,7 @@ const View = () => {
             <div className="col-3 ml-5 mr-5 mb-5">
               <div className="card">
                 <div className="card-body">
-                  <img src={IntroTwo} className="card-img-top about-profile" alt=""/>
+                  <img src={images.IntroTwo} className="card-img-top about-profile" alt=""/>
                   <h5 className="card-title">
                     <span>Basytyan K. Pratama</span>
                   </h5>
@@ -113,7 +115,7 @@ const View = () => {
             <div className="col-3 ml-5 mb-5">
               <div className="card">
                 <div className="card-body">
-                  <img src={IntroTwo} className="card-img-top about-profile" alt=""/>
+                  <img src={images.IntroTwo} className="card-img-top about-profile" alt=""/>
                   <h5 className="card-title">
                     <span>Basytyan K. Pratama</span>
                   </h5>

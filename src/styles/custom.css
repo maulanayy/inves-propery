@@ -1,6 +1,6 @@
 @font-face {
   font-family: louisGeorgeCafe;
-  src: url(../../public/font/Louis-George-Cafe.woff);
+  src: url(../font/Louis-George-Cafe.woff);
 }
 
 div {
@@ -509,7 +509,7 @@ span {
 
 #section-two {
   width: 100%;
-  background: url(../../public/assets/bulding.png);
+  background: url(../images/bulding.png);
   padding-top: 120px;
   background-repeat: no-repeat;
   background-size: 50% 100%;
@@ -551,8 +551,8 @@ span {
   height: auto;
   position: relative;
   overflow: hidden;
-  background: url(../../public/assets/Flek2V.png),
-    url(../../public/assets/FlekV.png);
+  background: url(../images/Flek2V.png),
+    url(../images/FlekV.png);
   background-size: 287px 257px, 327px 257px;
   background-position: left bottom, right top;
   background-position-x: -65px, 95%;
@@ -655,7 +655,7 @@ span {
   overflow: hidden;
   background-size: unset;
   padding: 80px 0 50px 0;
-  background: url(../../public/assets/FlekH.png);
+  background: url(../images/FlekH.png);
   background-size: 287px 350px;
   background-position: left top;
   background-position-x: -12%;
@@ -1514,7 +1514,7 @@ span {
   padding: 100px 0 300px 0;
   color: #eee;
   font-size: 14px;
-  background: url(../../public/assets/footer-1.png),url(../../public/assets/footer-2.png);
+  background: url(../images/footer-1.png),url(../images/footer-2.png);
   background-repeat: no-repeat;
   background-position-y: -10%,350px;
   background-position-x: 0,-100px;

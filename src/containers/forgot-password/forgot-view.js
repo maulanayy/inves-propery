@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar } from "../../components";
 import { NavLink } from "react-router-dom";
-import AssetSix from "../../../public/assets/asset-6.png";
+import { images } from "../../config"
 import { Input } from "antd";
 
 const View = () => {
@@ -41,7 +41,7 @@ const View = () => {
                 </div>
               </div>
               <div className="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2">
-                <img src={AssetSix} className="img-fluid" alt="" />
+                <img src={images.AssetSix} className="img-fluid" alt="" />
               </div>
             </div>
           </div>

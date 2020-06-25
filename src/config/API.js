@@ -60,9 +60,9 @@ const faqs = {
     }),
 };
 
-const account = {
-  register : ()
-}
+// const account = {
+//   register : ()
+// }
 export default {
   home,
   project,
