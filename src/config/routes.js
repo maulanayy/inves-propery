@@ -11,6 +11,8 @@ import Proyek from "../containers/proyek";
 import Forgot from "../containers/forgot-password";
 import Journey from "../containers/journey";
 import AboutUs from "../containers/about-us";
+import Blog from "../containers/blog";
+import Howto from "../containers/how-to";
 import JourneyOne from "../containers/journey/journey-one-view";
 import JourneyTwo from "../containers/journey/journey-two-view";
 import JourneyThree from "../containers/journey/journey-three-view";
@@ -112,6 +114,16 @@ const routes = [
   {
     path: "/about-us",
     component: AboutUs,
+    isPublic: false,
+  },
+  {
+    path: "/blog",
+    component: Blog,
+    isPublic: false,
+  },
+  {
+    path: "/how-to",
+    component: Howto,
     isPublic: false,
   },
 ];

@@ -23,10 +23,10 @@ const Navbar = () => {
               <NavLink to="/about-us">Tentang Kami</NavLink>
             </li>
             <li>
-              <a href="#gallery">Cara Kerja</a>
+              <NavLink to="/how-to">Cara Kerja</NavLink>
             </li>
             <li>
-              <a href="#pricing">Blog</a>
+              <NavLink to="/blog">Blog</NavLink>
             </li>
             <li>
               <NavLink to="/faq">FAQ</NavLink>

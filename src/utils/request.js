@@ -14,8 +14,9 @@ import Cookies from "js-cookie";
  * Create an Axios Client with defaults
  */
 
+const apiURL = process.env.REACT_APP_REST_URL || "http://core.invesproperti.id/api/v1"
 const client = axios.create({
-  baseURL: process.env.REACT_APP_REST_URL,
+  baseURL: apiURL,
 });
 
 /**
