@@ -1,48 +1,174 @@
-import React from "react";
+import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { images } from "../../config";
+import { OffCanvas, OffCanvasMenu, OffCanvasBody } from "react-offcanvas";
+import { slide as Menu } from 'react-burger-menu'
 
 // const [scrolled, setScrolled] = useState(false);
 
-const Navbar = () => {
-  return (
-    <header id="header" className="fixed-top header-scrolled">
-      <div className="container d-flex ">
-        <div className="logo mr-auto">
-          <NavLink to="/">
-            <img src={images.Logo} alt="" className="img-fluid" />
-          </NavLink>
-        </div>
+export default class Navbar extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      isMenuOpened: false  
+    }
+    
+    this.handleClick = this.handleClick.bind();
+  }
+  
+  renderMenu() {
+    return (
+      <Menu isOpen={ true }>
+        <a id="home" className="menu-item" href="/">Home</a>
+        <a id="about" className="menu-item" href="/about">About</a>
+        <a id="contact" className="menu-item" href="/contact">Contact</a>
+        <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
+      </Menu>
+    );
+  }
+ 
 
-        <nav className="nav-menu d-none d-lg-block">
+  renderCanvas() {
+    return (
+      <OffCanvas
+        width={300}
+        transitionDuration={300}
+        effect={"parallax"}
+        isMenuOpened={this.state.isMenuOpened}
+        position={"right"}
+      >
+        <OffCanvasBody
+          className='bodyClass'
+          style={{ fontSize: "30px" }}
+        >
+          <button id="userDropdown" className="btn dropdown-toggle" onClick={this.handleClick}>
+            <img className="imgProfile rounded-circle border border-dark" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" />
+          </button>          
+        </OffCanvasBody>
+        <div className={this.state.isMenuOpened ? "profileMenuOverlay" : ''} onClick={this.handleClick}></div>
+        <OffCanvasMenu className='menuClass' isMenuOpened={this.state.isMenuOpened}>
+          
+          <p>Placeholder content.</p>
           <ul>
+            <li>Link 1</li>
+            <li>Link 2</li>
+            <li>Link 3</li>
+            <li>Link 4</li>
+            <li>Link 5</li>
             <li>
-              <NavLink to="/properti">Daftar Properti</NavLink>
-            </li>
-            <li>
-              <NavLink to="/about-us">Tentang Kami</NavLink>
-            </li>
-            <li>
-              <a href="#gallery">Cara Kerja</a>
-            </li>
-            <li>
-              <a href="#pricing">Blog</a>
-            </li>
-            <li>
-              <NavLink to="/faq">FAQ</NavLink>
-            </li>
-
-            <li className="login">
-              <NavLink to="/login">Masuk</NavLink>
-            </li>
-            <li className="register">
-              <NavLink to="/register">Daftar</NavLink>
+              <a href="#" onClick={this.handleClick}>
+                Toggle Menu
+              </a>
             </li>
           </ul>
-        </nav>
-      </div>
-    </header>
-  );
-};
+        </OffCanvasMenu>
+      </OffCanvas>
+    );
+  }
+ 
+  handleClick = () => {
+    // toggles the menu opened state
+    console.log('isMenuOpened is ', this.state.isMenuOpened)
+    this.setState({ isMenuOpened: !this.state.isMenuOpened });
+  }
 
-export default Navbar;
+  render() {    
+    return(
+      <header className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+          <div className="navbar-desktop">
+            <div className="container d-flex ">
+              <div className="logo mr-auto">
+                <NavLink to="/">
+                  <img src={images.Logo} alt="" className="img-fluid" />
+                </NavLink>
+              </div>
+
+              <nav className="nav-menu d-none d-lg-block">
+                <ul>
+                  <li>
+                    <NavLink to="/properti">Daftar Properti</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/about-us">Tentang Kami</NavLink>
+                  </li>
+                  <li>
+                    <a href="#gallery">Cara Kerja</a>
+                  </li>
+                  <li>
+                    <a href="#pricing">Blog</a>
+                  </li>
+                  <li>
+                    <NavLink to="/faq">FAQ</NavLink>
+                  </li>
+
+                  <li className="login">
+                    <NavLink to="/login">Masuk</NavLink>
+                  </li>
+                  <li className="register">
+                    <NavLink to="/register">Daftar</NavLink>
+                  </li>
+                </ul>
+              </nav>
+            </div>    
+          </div>
+          <div className="navbar-mobile">
+            <button id="sidebarToggleTop" className="btn d-md-none rounded-circle dropdown-toggle" data-toggle="dropdown">
+              <i className="fa fa-bars"></i>
+            </button>
+            <div className="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in menu-dropdown" aria-labelledby="sidebarToggleTop">                
+              <a className="dropdown-item text-center small text-gray-500" href="#">Daftar Properti</a>
+              <a className="dropdown-item text-center small text-gray-500" href="#">Tentang Kami</a>
+              <a className="dropdown-item text-center small text-gray-500" href="#">Cara Kerja</a>
+              <a className="dropdown-item text-center small text-gray-500" href="#">FAQ</a>
+              <a className="dropdown-item text-center small text-gray-500" href="#">Blog</a>
+            </div>
+            
+            <div className="logoTopbar text-center col-8">
+              <img src={images.Logo} alt="" className="img-fluid" />
+            </div>
+    { sessionStorage.getItem('token') ? <button className="btn"><img src={images.bellIcon} className="bellIcon"/> </button> : null}
+            <div className={ sessionStorage.getItem('token') ? 'navbar-right' : 'navbar-right col-3'}>
+              {
+                true ? this.renderCanvas() : <nav className="nav-menu d-lg-block"><ul>
+                
+                  <li className="register" style={{marginRight: 5}}>
+                    <NavLink to="/register">Daftar</NavLink>
+                  </li>
+                  <li className="login">
+                    <NavLink to="/login">Masuk</NavLink>
+                  </li>
+                  
+                </ul></nav>
+              }
+              
+              <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a className="dropdown-item" href="#">
+                  <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+                <a className="dropdown-item" href="#">
+                  <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Settings
+                </a>
+                <a className="dropdown-item" href="#">
+                  <i className="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Activity Log
+                </a>
+                <div className="dropdown-divider"></div>
+                <a className="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+
+              
+              
+            </div>
+          </div>
+        </header>
+    )
+
+  }
+}
+
+// export default Navbar;

@@ -21,6 +21,7 @@ images.Journey7 = require("../images/journey.png");
 images.LogoOjk = require("../images/logo/LogoOJK.png");
 images.LogoCertified = require("../images/logo/LogoCertified.png");
 images.profileImg = require("../images/profile.png");
+images.bellIcon = require("../images/bell-icon.png");
 
 
 
