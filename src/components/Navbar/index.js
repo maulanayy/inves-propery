@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { images } from "../../config";
 import { OffCanvas, OffCanvasMenu, OffCanvasBody } from "react-offcanvas";
 import { slide as Menu } from 'react-burger-menu'
+import image from "bizcharts/lib/components/Annotation/image";
 
 // const [scrolled, setScrolled] = useState(false);
 
@@ -47,20 +48,78 @@ export default class Navbar extends Component {
         </OffCanvasBody>
         <div className={this.state.isMenuOpened ? "profileMenuOverlay" : ''} onClick={this.handleClick}></div>
         <OffCanvasMenu className='menuClass' isMenuOpened={this.state.isMenuOpened}>
-          
-          <p>Placeholder content.</p>
-          <ul>
-            <li>Link 1</li>
-            <li>Link 2</li>
-            <li>Link 3</li>
-            <li>Link 4</li>
-            <li>Link 5</li>
-            <li>
-              <a href="#" onClick={this.handleClick}>
-                Toggle Menu
-              </a>
-            </li>
-          </ul>
+          <div className="container">
+            <div className="row">
+              <div className="col-4">
+                <img className="imgProfile rounded-circle border border-dark" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" />
+              </div>
+              <div className="col-8">
+                <div className="row">
+                  <div className="col"><p className="menu-username">Ihlam Akbar</p></div>
+                </div>
+                <div className="row">
+                  <div className="col"><p className="menu-email">98ilham.akbar@gmail.com</p></div>
+                </div>
+                <div className="row">
+                  <div className="col"><a href="#" className="menu-email menu-Ubah-Password"><i className="fa fa-gear"></i> Ubah Password</a></div>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+                <ul className="list-unstyled sidebar-menu" >
+                  <li>
+                    <NavLink to="/dashboard" className="link"><i className="fa fa-columns"></i>Dashboard<br/>
+                    {document.location.pathName == "/" ? <div className="sidebarActivePage"></div> : null}
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/portofolio" className="link"><i className="fa fa-suitcase" ></i>Portofolio<br/>
+                    {document.location.pathName == "/portofolio" ? <div className="sidebarActivePage"></div> : null}
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/profil" className="link"><i className="fa fa-user" ></i>Profil<br/>
+                    {document.location.pathName == "/profil" ? <div className="sidebarActivePage"></div> : null}
+                    </NavLink>
+                  </li>
+                </ul>
+
+                <div className="sidebar-menu">
+                  <h6 style={{fontWeight: 'bold'}}>Rekening Bank</h6>
+                  <div className="roundGrey">
+                    <div class="d-flex align-items-center justify-content-center" style={{height: '110px'}}>
+                      <div class="p-2 bd-highlight text-center">:( <br />Belum ada rekening terdaftar</div>
+                      <div class="plusIcon"><i className="fa fa-plus-circle"></i></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="sidebar-menu" style={{marginTop: 50}}>
+                  <div className="roundHeavyGreen">
+                  <div class="d-flex align-items-center justify-content-center" style={{height: '110px'}}>
+                      <div class="p-2 bd-highlight text-center ml-2">
+                        Masih bingung dengan tampilan Dashboard?
+                        <br/>
+                        <button type="button" class="btn btn-outline-light btn-sm ulangi-tutorial ml-3">Ulangi Tutorial</button>
+                      </div>
+                      <div class="bd-highlight text-center">
+                        <img src={images.personWithQustionMark} class="personWithQustionMark" style={{marginTop: '-50px', height: '150px',float: 'right'}}></img>
+                      </div>
+                      
+                    </div>
+                    
+                  </div>
+                </div>
+
+                
+            </div>
+          </div>
+          <ul className="list-unstyled sidebar-menu" >
+                  <li>
+                    <NavLink to="/dashboard" className="link logout-menu"><i className="fa fa-sign-out"></i>Keluar<br/>                    
+                    </NavLink>
+                  </li>                  
+                </ul>
         </OffCanvasMenu>
       </OffCanvas>
     );
@@ -68,7 +127,6 @@ export default class Navbar extends Component {
  
   handleClick = () => {
     // toggles the menu opened state
-    console.log('isMenuOpened is ', this.state.isMenuOpened)
     this.setState({ isMenuOpened: !this.state.isMenuOpened });
   }
 
@@ -129,7 +187,7 @@ export default class Navbar extends Component {
     { sessionStorage.getItem('token') ? <button className="btn"><img src={images.bellIcon} className="bellIcon"/> </button> : null}
             <div className={ sessionStorage.getItem('token') ? 'navbar-right' : 'navbar-right col-3'}>
               {
-                true ? this.renderCanvas() : <nav className="nav-menu d-lg-block"><ul>
+                 sessionStorage.getItem('token') ? this.renderCanvas() : <nav className="nav-menu d-lg-block"><ul>
                 
                   <li className="register" style={{marginRight: 5}}>
                     <NavLink to="/register">Daftar</NavLink>
