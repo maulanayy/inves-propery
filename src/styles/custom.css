@@ -1723,6 +1723,14 @@ span {
   height: 100%;
 }
 
+.item-desktop {
+  display: block;
+}
+
+.item-mobile {
+  display: none;
+}
+
 .bellIcon {
   width: auto;
   height: 23px;
@@ -1823,7 +1831,122 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 @media (max-width: 767px) {
-  
+  .item-mobile {
+    display: block;
+  }
+  .item-desktop {
+    display: none;
+  }
+
+  #section-three {
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    background: url(/static/media/FlekV.df26c8c0.png);
+    background-size: 125px 200px;
+    background-position: right top;
+    background-position-x: 135%;
+    background-position-y: top;
+    background-repeat: no-repeat;
+    padding: 50px 0 50px 0;
+}
+
+  #section-two {
+    background-size: 50px 100px;
+    background-position-x: 0;
+    padding-top: 0;
+  }
+
+  #section-two .item-content, #section-three .item-content, #section-four .item-content, #section-six .item-content, #section-seven .item-content, #section-seven .item-content .text-right,
+  #section-eight .item-content .title, #section-nine .item-content .title{
+    text-align: center !important;
+  }
+
+  #section-two h4.title, #section-three h4.title, #section-four h4.title, #section-five h3.title, #section-six .item-content h3.title, #section-seven .item-content .text-right h2, #section-eight .item-content .title, 
+  #section-nine .item-content .title, #section-ten .item-content .title, .section-eleven .item-content .title,
+  .footer.item-mobile .item-title {
+    font-size: 14px !important;
+  }
+
+  #section-five h4.font-weight-bold {
+    font-size: 10px;
+  }
+
+  #section-six .item-content .count-number h1.number {
+    font-size: 30px;
+  }
+
+  #section-six .item-content .count-number h4 {
+    font-size: 8px;
+  }
+
+  #section-six {
+    height: 100%;
+    padding: 20px 0 20px 0;
+    border-radius: 25px;
+  }
+  #section-six .count-number {
+    margin-top: 10px;
+  }
+
+  #section-seven .item-content .text-right h2 img {
+    width: 30px !important;
+    height: 30px !important;
+    margin-right: 10px !important;
+  }
+
+  #section-eight {
+    background-size: 20% 50%;
+    height: 350px;
+    padding: 50px 0 50px 0;
+  }
+
+  #section-nine .col-lg-8.d-lg-flex.flex-lg-column.justify-content-top.align-items-stretch.pt-5.pt-lg-0 {
+    padding-top: 0;
+  }
+
+  .footer.item-mobile .img-fluid{
+    width: auto;
+  }
+
+  #section-nine .item-content .img-fluid {
+    width: 100% !important;
+    height: 100% !important;
+    padding: 30px;
+  }
+
+  #section-two .item-content p, #section-three .item-content p {
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+    font-family: LouisGeorgeCafe;
+    font-weight: bold;
+    font-size: 10px;
+  }
+
+  #section-two .how-to-img {
+    height: auto;
+  }
+
+  .item-title{
+    font-family: Quicksand;
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  p.contact-address {
+    font-size: 8px;
+  }
+
+  .pt {
+    font-size: 10px;
+  }
+
+  .topbar .dropdown-list .dropdown-item {
+    border-bottom: none;
+  }
+
   .roundHeavyGreen {
     border-radius: 7.5px;
     height: 100px;

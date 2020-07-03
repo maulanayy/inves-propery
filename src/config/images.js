@@ -3,6 +3,8 @@ const images = {};
 images.delution_logo = require('../images/Delution_Logo.jpg');
 images.IntroOne = require('../images/group_presentation.png');
 images.IntroTwo = require('../images/Intro2.png');
+images.IntroThree = require('../images/Intro3.png');
+images.IntroFour = require('../images/Intro4.png');
 images.Logo = require("../images/logo/logo.png");
 images.ImgSecFour = require("../images/img-sec-4.png");
 images.AssetThree = require("../images/asset-3.png");
@@ -22,7 +24,9 @@ images.LogoOjk = require("../images/logo/LogoOJK.png");
 images.LogoCertified = require("../images/logo/LogoCertified.png");
 images.profileImg = require("../images/profile.png");
 images.bellIcon = require("../images/bell-icon.png");
-images.personWithQustionMark = require("../images/personWithQustionMark.png")
+images.personWithQustionMark = require("../images/personWithQustionMark.png");
+images.footer1 = require("../images/footer-1.png");
+images.footer2 = require("../images/footer-2.png");
 
 
 

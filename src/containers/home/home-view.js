@@ -29,13 +29,13 @@ const Views = ({ statistics, supports, opinions, projects }) => {
       <section id="section-four">
         <div className="container">
           <div className="row">
-            <div className="col-lg-8 text-justify ">
-              <h4 className="ml-5">
+            <div className="col-md-8 text-justify item-content">
+              <h4 className="ml-5 title">
                 Simulasi Kenaikan <span>Investasi Properti</span>
               </h4>
               <Graph />
             </div>
-            <div className="col-lg-3 ml-5 mt-5">
+            <div className="col-lg-3 ml-5 mt-5 item-desktop">
               <img
                 src={images.ImgSecFour}
                 className="align-bottom"
@@ -55,13 +55,13 @@ const Views = ({ statistics, supports, opinions, projects }) => {
       <section id="section-five">
         <div className="container">
           <div className="row">
-            <div className="col">
-              <h3 className="font-weight-bold mb-0">
+            <div className="col item-content">
+              <h3 className="font-weight-bold mb-0 title">
                 Cari Properti Pilihan Anda
               </h3>
               <h4
                 style={{
-                  color: "#045c36",
+                  color: "#3cba92",
                 }}
                 className="font-weight-bold"
               >
@@ -72,7 +72,7 @@ const Views = ({ statistics, supports, opinions, projects }) => {
                 {" "}
                 <h4
                   style={{
-                    color: "#045c36",
+                    color: "#3cba92",
                   }}
                   className="font-weight-bold text-right mt-1"
                 >
@@ -85,28 +85,28 @@ const Views = ({ statistics, supports, opinions, projects }) => {
       </section>
 
       <section id="section-six" className="container-border">
-        <div className="container">
+        <div className="container item-content">
           <div className="row">
             <div className="col-lg-12">
               <h3 className="text-center title">Capaian Kami</h3>
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-4 text-center count-number title">
+            <div className="col-4 text-center count-number title">
               <h1 className="number">
-                <span>{statistics.memberCount}</span>
+                <span>{statistics.memberCount || 0}</span>
               </h1>
               <h4>Investor Terdaftar</h4>
             </div>
-            <div className="col-lg-4 text-center count-number title">
+            <div className="col-4 text-center count-number title">
               <h1 className="number">
-                <span>{statistics.projectCount}</span>
+                <span>{statistics.projectCount || 0}</span>
               </h1>
               <h4>Properti</h4>
             </div>
-            <div className="col-lg-4 text-center count-number title">
+            <div className="col-4 text-center count-number title">
               <h1 className="number">
-                <span>{statistics.investSum}M</span>
+                <span>{statistics.investSum || 0}M</span>
               </h1>
               <h4>Modal Terkumpul</h4>
             </div>
@@ -115,9 +115,9 @@ const Views = ({ statistics, supports, opinions, projects }) => {
       </section>
 
       <section id="section-seven">
-        <div className="container">
+        <div className="container item-content">
           <div className="row">
-            <div className="col-lg-10  text-right">
+            <div className="col-lg-10 text-right">
               <h2>
                 <img
                   src={images.AssetTwo}
@@ -165,8 +165,8 @@ const Views = ({ statistics, supports, opinions, projects }) => {
       </section>
 
       <section id="section-eight">
-        <div className="container">
-          <h2 className="text-center video-carousel">
+        <div className="container item-content">
+          <h2 className="text-center video-carousel title">
             Video <span>Testimonial</span>
           </h2>
           <div className="row mt-5">
@@ -187,16 +187,16 @@ const Views = ({ statistics, supports, opinions, projects }) => {
       </section>
 
       <section id="section-nine">
-        <div className="container">
+        <div className="container item-content">
           <div className="row">
             <div className="col-lg-4 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-lg-0 ">
               <div>
-                <h4>
+                <h4 className="title">
                   <span>Butuh Dana </span> untuk Proyek
                   <br />
                   Menarik Anda ?
                 </h4>
-                <div className="row">
+                <div className="row item-desktop">
                   <div className="col-lg-6">
                     <a href="#" className="start-button">
                       Hubungi Kami
@@ -215,6 +215,19 @@ const Views = ({ statistics, supports, opinions, projects }) => {
                 }}
                 alt=""
               />
+              
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-lg-4 d-lg-flex flex-lg-column text-center align-items-stretch pt-lg-0 mt-3">
+              <div>
+                  <div className="col-lg-6">
+                    <a href="#" className="start-button">
+                      Hubungi Kami
+                    </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -223,18 +236,54 @@ const Views = ({ statistics, supports, opinions, projects }) => {
       <SectionTen supports={supports} />
 
       <section className="section-eleven">
-        <div className="container">
+        <div className="container item-content">
           <div className="row">
             <div className="col-lg-12 text-center">
-              <h2>
+              <h4 className="title">
                 <span>Diliput</span> Oleh
-              </h2>
+              </h4>
               Courosel
             </div>
           </div>
         </div>
       </section>
-      <footer id="footer">
+      <footer className="footer item-mobile">
+        <div className="row">
+          <div className="col-lg-3 text-center">
+                <img src={images.Logo} className="img-fluid logo" alt="" />
+                
+          </div>
+          
+        </div>
+        <div className="row">
+            <div className="col-10 offset-1 text-center">
+                <span className="item-title">Kontak Kami</span>
+                <p className="contact-address">
+                  <i className="fa fa-map-marker-alt"></i> Menara Bandung Digital Valley, Jl.Gegerkalong Hilir No.47,
+                  <br />
+                  Sukarasa, Kec.Sukasari, Kota bandung, Jawa Barata 40152 <br />{" "}
+                  
+                  support@invesproperti.id <br />
+                  085722159221
+                </p>
+              
+            </div>
+          </div>
+        <div className="row">
+          <div className="col-lg-3 col-md-6 text-center">
+                <div className="pt">PT Berkah Inovasi Nusantara 2020</div>          
+          </div>
+        </div>
+        <div className="row">
+            <div className="col-8 offset-2">
+              <img src={images.AssetFive} className="img-fluid" alt="" />
+            </div>
+            </div>
+        <div className="row">
+          <img src={images.footer1} className="img-fluid" alt="" />
+        </div>
+      </footer>
+      <footer id="footer" className="item-desktop">
         <div className="container">
           <div className="row">
             <div className="col-lg-3 col-md-6 ">

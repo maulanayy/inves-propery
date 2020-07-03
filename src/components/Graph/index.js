@@ -13,8 +13,7 @@ const Graph = () => {
   return (
     <div className={"my-pretty-chart-container"}>
       <Chart
-        width={"750px"}
-        height={"400px"}
+        
         chartType="AreaChart"
         loader={<div>Loading Chart</div>}
         data={data}
