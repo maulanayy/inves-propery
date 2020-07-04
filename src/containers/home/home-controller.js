@@ -10,6 +10,8 @@ const Controller = () => {
   const [testimonials, setTestimonials] = useState([]);
   const [opinions, setOpinions] = useState([]);
   const [projects, setProjects] = useState([]);
+  const [features, setFeatures] = useState([]);
+  
 
   useEffect(() => {
     const _loadData = async () => {
@@ -22,20 +24,21 @@ const Controller = () => {
         );
         const dataOpinion = await API.home.opinion(source.current.token);
         const dataProject = await API.project.get(source.current.token);
+        const dataFeatures = await API.home.featured(source.current.token);
 
         dataStatistic.result.investSum /= 1000000000;
 
 
-        dataProject.result.map(value => {
+        let value = dataProject.result;
           
-          value.target /= 1000000;
-          value.collected /= 1000000;
-          value.persentage = (value.collected / value.target) * 100
+        value.target /= 1000000;
+        value.collected /= 1000000;
+        value.persentage = (value.collected / value.target) * 100;
 
-          return value  
-        })
+        
 
-        setTestimonials(dataTestimonials.result);
+        setFeatures(dataFeatures.result.data);
+        setTestimonials(dataTestimonials.result.data);
         setOpinions(dataOpinion.result.data);
         setStatistics(dataStatistic.result);
         setSupports(dataSupport.result.data);
@@ -61,6 +64,7 @@ const Controller = () => {
       testimonials={testimonials}
       opinions={opinions}
       projects={projects}
+      features={features}
     />
   );
 };

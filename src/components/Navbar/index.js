@@ -87,23 +87,23 @@ export default class Navbar extends Component {
                 <div className="sidebar-menu">
                   <h6 style={{fontWeight: 'bold'}}>Rekening Bank</h6>
                   <div className="roundGrey">
-                    <div class="d-flex align-items-center justify-content-center" style={{height: '110px'}}>
-                      <div class="p-2 bd-highlight text-center">:( <br />Belum ada rekening terdaftar</div>
-                      <div class="plusIcon"><i className="fa fa-plus-circle"></i></div>
+                    <div className="d-flex align-items-center justify-content-center" style={{height: '110px'}}>
+                      <div className="p-2 bd-highlight text-center">:( <br />Belum ada rekening terdaftar</div>
+                      <div className="plusIcon"><i className="fa fa-plus-circle"></i></div>
                     </div>
                   </div>
                 </div>
 
                 <div className="sidebar-menu" style={{marginTop: 50}}>
                   <div className="roundHeavyGreen">
-                  <div class="d-flex align-items-center justify-content-center" style={{height: '110px'}}>
-                      <div class="p-2 bd-highlight text-center ml-2">
+                  <div className="d-flex align-items-center justify-content-center" style={{height: '110px'}}>
+                      <div className="p-2 bd-highlight text-center ml-2">
                         Masih bingung dengan tampilan Dashboard?
                         <br/>
-                        <button type="button" class="btn btn-outline-light btn-sm ulangi-tutorial ml-3">Ulangi Tutorial</button>
+                        <button type="button" className="btn btn-outline-light btn-sm ulangi-tutorial ml-3">Ulangi Tutorial</button>
                       </div>
-                      <div class="bd-highlight text-center">
-                        <img src={images.personWithQustionMark} class="personWithQustionMark" style={{marginTop: '-50px', height: '150px',float: 'right'}}></img>
+                      <div className="bd-highlight text-center">
+                        <img src={images.personWithQustionMark} className="personWithQustionMark" style={{marginTop: '-50px', height: '150px',float: 'right'}}></img>
                       </div>
                       
                     </div>

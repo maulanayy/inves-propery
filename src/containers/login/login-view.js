@@ -42,7 +42,7 @@ const View = () => {
                       >
                         Masuk
                       </NavLink>
-                      {/* <button type="submit" class="btn btn-primary button">
+                      {/* <button type="submit" className="btn btn-primary button">
                         Masuk
                       </button> */}
                       <br />

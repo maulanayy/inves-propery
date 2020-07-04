@@ -8,6 +8,7 @@ import {
   SectionTen,
   Graph,
   Properties,
+  Testimonials,
 } from "../../components";
 import { images } from "../../config"
 // import Logo from "../../../public/assets/logo/logo.png";
@@ -19,7 +20,7 @@ import { images } from "../../config"
 import { NavLink } from "react-router-dom";
 import { Carousel } from "antd";
 
-const Views = ({ statistics, supports, opinions, projects }) => {
+const Views = ({ statistics, supports, opinions, projects, testimonials, features }) => {
   return (
     <div>
       <Navbar />
@@ -137,7 +138,7 @@ const Views = ({ statistics, supports, opinions, projects }) => {
             <div className="col">
               <Carousel autoplay>
                 {opinions.map((item, key) => (
-                  <div>
+                  <div key={key}>
                     <div className="row mb-0 justify-content-md-center">
                       <div className="col-lg-4 mr-2">
                         <img
@@ -170,18 +171,27 @@ const Views = ({ statistics, supports, opinions, projects }) => {
             Video <span>Testimonial</span>
           </h2>
           <div className="row mt-5">
-            <div className="col ">
+            <div className="col-1">
+              <i className="fa fa-chevron-left" style={{marginTop: '5rem', fontSize: 'large', color: '#3cba92'}}></i>
+            </div>
+            <div className="col-10">
               <ReactCardCarousel
                 autoplay={false}
                 autoplay_speed={2500}
                 disable_box_shadow={true}
                 spread={"wide"}
               >
-                <div className="video-card"></div>
+                {testimonials.map((item, key) => (
+                  <div className="video-card" key={key}>
+                    <iframe src={item.url.replace('watch?v=', 'embed/')} style={{width: '100%', height: 'inherit'}}/>
+                  </div>                  
+                ))}
+                {/* <div className="video-card"></div>
                 <div className="video-card">Second Card</div>
-                <div className="video-card">Third Card</div>
+                <div className="video-card">Third Card</div> */}
               </ReactCardCarousel>
             </div>
+            <i className="fa fa-chevron-right" style={{marginTop: '5rem', fontSize: 'large', color: '#3cba92'}}></i>
           </div>
         </div>
       </section>
@@ -219,7 +229,7 @@ const Views = ({ statistics, supports, opinions, projects }) => {
             </div>
           </div>
 
-          <div className="row">
+          <div className="row item-mobile">
             <div className="col-lg-4 d-lg-flex flex-lg-column text-center align-items-stretch pt-lg-0 mt-3">
               <div>
                   <div className="col-lg-6">
@@ -237,14 +247,49 @@ const Views = ({ statistics, supports, opinions, projects }) => {
 
       <section className="section-eleven">
         <div className="container item-content">
-          <div className="row">
+          <div className="row row mb-3 pb-5">
             <div className="col-lg-12 text-center">
               <h4 className="title">
                 <span>Diliput</span> Oleh
               </h4>
-              Courosel
             </div>
           </div>
+          <div className="row mt-5">
+            <div className="col-1">
+              <i className="fa fa-chevron-left" style={{marginTop: '5rem', fontSize: 'large', color: '#3cba92'}}></i>
+            </div>
+            <div className="col-10">
+              
+              <ReactCardCarousel
+                autoplay={false}
+                autoplay_speed={2500}
+                disable_box_shadow={true}
+                spread={"wide"}
+              >
+                {features.map((item, key) => (
+                  <div className="video-card card-featured pt-4" key={key}>
+                    <div class="card mb-2">
+                      <div className="text-center col-4 offset-4">
+                      <img class="card-img-top"
+            src={item.image} alt="Card image cap" />              
+                      </div>
+          
+          <div class="card-body">
+                <h4 class="card-title">{item.title}</h4>
+                <p class="card-text">{item.subtitle}</p>
+                <a class="btn btn-outline-success btn-sm" href="#">Baca Selengkapnya</a>  
+          </div>
+        </div>
+                  </div>                  
+                ))}
+                {/* <div className="video-card"></div>
+                <div className="video-card">Second Card</div>
+                <div className="video-card">Third Card</div> */}
+              </ReactCardCarousel>
+            </div>
+            <i className="fa fa-chevron-right" style={{marginTop: '5rem', fontSize: 'large', color: '#3cba92'}}></i>
+          </div>
+
         </div>
       </section>
       <footer className="footer item-mobile">

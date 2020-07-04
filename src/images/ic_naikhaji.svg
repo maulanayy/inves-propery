@@ -5,14 +5,14 @@
         </style>
     </defs>
     <g id="prefix__ic_naikhaji" transform="translate(-548 -658)">
-        <g id="prefix__Rectangle_177" class="prefix__cls-1" data-name="Rectangle 177" transform="translate(548 658)">
+        <g id="prefix__Rectangle_177" className="prefix__cls-1" data-name="Rectangle 177" transform="translate(548 658)">
             <rect width="142" height="142" rx="29" style="stroke:none"/>
             <rect width="139" height="139" x="1.5" y="1.5" rx="27.5" style="fill:none"/>
         </g>
         <g id="prefix__Group_106" data-name="Group 106" transform="translate(6)">
-            <path id="prefix__Path_174" d="M5339.363 3158.011v57.326l36.852 7.507 41.63-7.507v-57.326l-41.63-10.968z" class="prefix__cls-1" data-name="Path 174" transform="translate(-4765 -2455)"/>
-            <path id="prefix__Path_175" d="M5339.363 3172.057l36.229-10.946 42.254 10.946v12.2l-42.254-10.321-36.229 10.321z" class="prefix__cls-1" data-name="Path 175" transform="translate(-4765 -2456.871)"/>
-            <path id="prefix__Path_176" d="M5381.509 3147.043v76.117" class="prefix__cls-1" data-name="Path 176" transform="translate(-4770.606 -2455)"/>
+            <path id="prefix__Path_174" d="M5339.363 3158.011v57.326l36.852 7.507 41.63-7.507v-57.326l-41.63-10.968z" className="prefix__cls-1" data-name="Path 174" transform="translate(-4765 -2455)"/>
+            <path id="prefix__Path_175" d="M5339.363 3172.057l36.229-10.946 42.254 10.946v12.2l-42.254-10.321-36.229 10.321z" className="prefix__cls-1" data-name="Path 175" transform="translate(-4765 -2456.871)"/>
+            <path id="prefix__Path_176" d="M5381.509 3147.043v76.117" className="prefix__cls-1" data-name="Path 176" transform="translate(-4770.606 -2455)"/>
         </g>
     </g>
 </svg>

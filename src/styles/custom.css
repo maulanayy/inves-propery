@@ -673,11 +673,15 @@ span {
   margin-right: 200px;
   margin-left: 200px;
   padding-top: 80px;
-  text-align: "center";
-  background: #4cbf9a;
+  text-align: center;
+  /* background: #4cbf9a; */
   color: #fff;
-  font-size: "12px";
-  text-transform: "uppercase";
+  font-size: 12px;
+  text-transform: uppercase;
+  border-radius: 10px;
+}
+
+.video-card iframe {
   border-radius: 10px;
 }
 
@@ -927,6 +931,20 @@ span {
 }
 .col-lg-3 {
   padding: 10px 0 50px 0;
+}
+
+.card-featured {
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+}
+
+.card-featured .card-title,  .card-featured .card-text{
+  font-family: LouisGeorgeCafe;
+  font-size: 12px;
+}
+
+.card-featured p.card-text {
+  font-size: 10px;
+  color: #000;
 }
 
 .card-balance {
@@ -1373,7 +1391,11 @@ span {
   font-size: 10px;
 }
 
-#properti .btn-filter:hover {
+#properti .btn-filter:focus {
+  outline: none;
+}
+
+#properti .btn-filter:hover, #properti .btn-filter.active{
   color: #3cba92;
   border-color: #3cba92;
   text-decoration: none;
@@ -1405,8 +1427,23 @@ span {
 }
 
 .card-properti .content {
-  margin-top: 95%;
+  margin-top: 90%;
 }
+
+#properti .input-group{
+  border: 1px solid #000;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+#properti .input-group input {
+  border: none;
+}
+
+#properti .input-group input.form-control:focus{
+  box-shadow: none;
+}
+
 
 .card-properti .location {
   font-size: 10px;

@@ -17,7 +17,7 @@ const SectionTwo = () => {
           <div className="col-md-2 side"></div>
           <div className="col-md-3 item-content">
             <img src={images.IntroTwo} className="how-to-img" alt=""/>
-            <h4 class="item-title">Cari</h4>
+            <h4 className="item-title">Cari</h4>
             <p>
               Temukan jenis atau proyek properti yang Anda inginkan dari daftar
               properti yang telah kami seleksi. Pastikan Anda juga menganalisis
@@ -27,7 +27,7 @@ const SectionTwo = () => {
           </div>
           <div className="col-md-3 ml-4 item-content">
             <img src={images.IntroFour} className="how-to-img" alt=""/>
-            <h4 class="item-title">Investasi</h4>
+            <h4 className="item-title">Investasi</h4>
             <p>
               Investasikan uang Anda pada projek properti kami secara online.
               Anda juga dapat menginvestasikan kembali hasil return dari
@@ -36,7 +36,7 @@ const SectionTwo = () => {
           </div>
           <div className="col-md-3 ml-4 item-content">
             <img src={images.IntroThree} className="how-to-img" alt=""/>
-            <h4 class="item-title">Bagi Hasil</h4>
+            <h4 className="item-title">Bagi Hasil</h4>
             <p>
               Dapatkan potensi passive income secara periodik dari harga sewa
               properti juga capital gain ketika properti dijual kembali atau

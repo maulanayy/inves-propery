@@ -12,7 +12,7 @@ const View = () => {
       <div id="wrapper">
         <LeftSideBar />
 
-        <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper" className="d-flex flex-column">
           <NavbarDashboard />
           <div className=" main-dashboard">
             <h5 className="title">Profil</h5>
