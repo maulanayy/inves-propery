@@ -14,6 +14,7 @@ const Properties = ({ projects }) => {
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
           }}
+          key={key}
         >
           <div className="row">
             <div className="col d-flex flex-row-reverse d-flex align-items-start">

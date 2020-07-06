@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { images } from "../../config";
 import { OffCanvas, OffCanvasMenu, OffCanvasBody } from "react-offcanvas";
 import { slide as Menu } from 'react-burger-menu'
-import image from "bizcharts/lib/components/Annotation/image";
 
 // const [scrolled, setScrolled] = useState(false);
 
@@ -69,17 +68,17 @@ export default class Navbar extends Component {
                 <ul className="list-unstyled sidebar-menu" >
                   <li>
                     <NavLink to="/dashboard" className="link"><i className="fa fa-columns"></i>Dashboard<br/>
-                    {document.location.pathName == "/" ? <div className="sidebarActivePage"></div> : null}
+                    {document.location.pathName === "/" ? <div className="sidebarActivePage"></div> : null}
                     </NavLink>
                   </li>
                   <li>
                     <NavLink to="/portofolio" className="link"><i className="fa fa-suitcase" ></i>Portofolio<br/>
-                    {document.location.pathName == "/portofolio" ? <div className="sidebarActivePage"></div> : null}
+                    {document.location.pathName === "/portofolio" ? <div className="sidebarActivePage"></div> : null}
                     </NavLink>
                   </li>
                   <li>
                     <NavLink to="/profil" className="link"><i className="fa fa-user" ></i>Profil<br/>
-                    {document.location.pathName == "/profil" ? <div className="sidebarActivePage"></div> : null}
+                    {document.location.pathName === "/profil" ? <div className="sidebarActivePage"></div> : null}
                     </NavLink>
                   </li>
                 </ul>
@@ -137,7 +136,7 @@ export default class Navbar extends Component {
             <div className="container d-flex ">
               <div className="logo mr-auto">
                 <NavLink to="/">
-                  <img src={images.Logo} alt="" className="img-fluid" />
+                  <img src={images.Logo} className="img-fluid" />
                 </NavLink>
               </div>
 
@@ -182,7 +181,7 @@ export default class Navbar extends Component {
             </div>
             
             <div className="logoTopbar text-center col-8">
-              <img src={images.Logo} alt="" className="img-fluid" />
+              <img src={images.Logo} className="img-fluid" />
             </div>
     { sessionStorage.getItem('token') ? <button className="btn"><img src={images.bellIcon} className="bellIcon"/> </button> : null}
             <div className={ sessionStorage.getItem('token') ? 'navbar-right' : 'navbar-right col-3'}>

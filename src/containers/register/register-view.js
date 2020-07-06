@@ -2,9 +2,9 @@ import React from "react";
 import { Navbar } from "../../components";
 import { NavLink } from "react-router-dom";
 import { images } from "../../config"
-import { Input } from "antd";
+import { Input, Button } from "antd";
 
-const View = () => {
+const View = (props) => {
   return (
     <React.Fragment>
       <div>
@@ -21,20 +21,52 @@ const View = () => {
                   <form>
                     <div className="md-form">
                       <label>Email</label>
-                      <Input placeholder="Email" name="email" />
+                      <Input placeholder="Email" type="email" name="email" 
+                      className={props.validation ? (props.validation.email ? 'form-control is-valid' : 'form-control is-invalid') : 'form-control' } 
+                      onChange={(e) => props.textChanged('email', e.target.value)}
+                      />
+                      {
+                      props.validation ? (props.validation.email ? '' : <div className='invalid-feedback'>Email tidak valid</div>) : '' 
+                      } 
                     </div>
+
                     <div className="md-form mt-1">
                       <label>Nama Lengkap</label>
-                      <Input placeholder="Nama Lengkap" name="nama" />
+                      <Input placeholder="Nama Lengkap" type="text" name="name" 
+                      className={props.validation ? (props.validation.name ? 'form-control is-valid' : 'form-control is-invalid') : 'form-control' } 
+                      onChange={(e) => props.textChanged('name', e.target.value)}
+                      />
+                      {
+                      props.validation ? (props.validation.name ? '' : <div className='invalid-feedback'>Nama Lengkap tidak valid</div>) : '' 
+                      } 
                     </div>
+
+                    <div className="md-form mt-1">
+                      <label>Nomor Telepon</label>
+                      <Input placeholder="Nomor Telepon" type="text" name="phone_number" 
+                      className={props.validation ? (props.validation.phone_number ? 'form-control is-valid' : 'form-control is-invalid') : 'form-control' } 
+                      onChange={(e) => props.textChanged('phone_number', e.target.value)}
+                      />
+                      {
+                      props.validation ? (props.validation.phone_number ? '' : <div className='invalid-feedback'>Nomor Telepon tidak valid</div>) : '' 
+                      } 
+                    </div>
+
                     <div className="md-form mt-1">
                       <label>Password</label>
-                      <Input.Password placeholder="Password" name="pass" />
+                      <Input.Password placeholder="Password" name="pass" 
+                      className={props.validation ? (props.validation.password ? 'form-control is-valid' : 'form-control is-invalid') : 'form-control' } 
+                      onChange={(e) => props.textChanged('password', e.target.value)} />
+                      
+                      {
+                      props.validation ? (props.validation.password ? '' : <div className='invalid-feedback'>Password panjangnya harus 8-16 karakter</div>) : '' 
+                      } 
                     </div>
                     <br />
-                    <NavLink to="/journey" className="bn btn-primary button">
-                      Daftar
-                    </NavLink>
+                    <Button type="submit" 
+                      className={(props.validation && props.validation.email && props.validation.password && props.validation.name && props.validation.phone_number) ? 'btn button' : 'btn button disabled'} 
+                      onClick={() => props.onSubmit()}
+                      >Daftar</Button>
                     Sudah memiliki akun ?{" "}
                     <NavLink to="/login">
                       <span>Masuk</span>

@@ -62,11 +62,25 @@ const faqs = {
     }),
 };
 
-// const account = {
-//   register : ()
-// }
+const account = {
+  login : (cancelToken, params) => 
+    request({
+      url: `${ROOT_URL}/user/login`,
+      method: "POST",
+      params: params,
+      cancelToken,      
+    }),
+  register : (cancelToken, params) => 
+    request({
+      url: `${ROOT_URL}/user/register`,
+      method: "POST",
+      params: params,
+      cancelToken      
+    }),
+}
 export default {
   home,
   project,
   faqs,
+  account,
 };

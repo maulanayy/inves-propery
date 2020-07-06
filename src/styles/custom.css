@@ -3,6 +3,37 @@
   src: url(../font/Louis-George-Cafe.woff);
 }
 
+form button.btn span {
+  color: white;
+}
+form button.btn {
+  padding: 2px 25px 5px 25px;
+}
+
+form button.btn.disabled, form button.btn.disabled span {
+  cursor: not-allowed;  
+  color: #3cba92;
+}
+
+form .ant-btn:not([disabled]):hover {
+  background-color: #3cba92;
+}
+
+form .invalid-feedback {
+  display: block;
+}
+
+._loading_overlay_wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
 div {
   font-family: "louisGeorgeCafe";
 }
@@ -443,6 +474,8 @@ span {
 
 #section-one .forgot {
   font-size: 13px;
+  width: 100%;
+  text-align: right;
 }
 
 #secton-one .back {

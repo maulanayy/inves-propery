@@ -11,11 +11,13 @@ const Controller = () => {
   const [opinions, setOpinions] = useState([]);
   const [projects, setProjects] = useState([]);
   const [features, setFeatures] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   
 
   useEffect(() => {
     const _loadData = async () => {
       source.current = axios.CancelToken.source();
+      setIsLoading(true)
       try {
         const dataStatistic = await API.home.statistic(source.current.token);
         const dataSupport = await API.home.support(source.current.token);
@@ -43,7 +45,9 @@ const Controller = () => {
         setStatistics(dataStatistic.result);
         setSupports(dataSupport.result.data);
         setProjects(dataProject.result);
+        setIsLoading(false)
       } catch (error) {
+        setIsLoading(false)
         console.error("error : ", error);
       }
     };
@@ -65,6 +69,7 @@ const Controller = () => {
       opinions={opinions}
       projects={projects}
       features={features}
+      isLoading={isLoading}
     />
   );
 };

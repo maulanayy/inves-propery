@@ -1,5 +1,6 @@
 import React from "react";
 import ReactCardCarousel from "react-card-carousel";
+import LoadingOverlay from 'react-loading-overlay';
 import {
   Navbar,
   SectionOne,
@@ -8,7 +9,6 @@ import {
   SectionTen,
   Graph,
   Properties,
-  Testimonials,
 } from "../../components";
 import { images } from "../../config"
 // import Logo from "../../../public/assets/logo/logo.png";
@@ -20,7 +20,7 @@ import { images } from "../../config"
 import { NavLink } from "react-router-dom";
 import { Carousel } from "antd";
 
-const Views = ({ statistics, supports, opinions, projects, testimonials, features }) => {
+const Views = ({ isLoading, statistics, supports, opinions, projects, testimonials, features }) => {
   return (
     <div>
       <Navbar />
@@ -183,7 +183,8 @@ const Views = ({ statistics, supports, opinions, projects, testimonials, feature
               >
                 {testimonials.map((item, key) => (
                   <div className="video-card" key={key}>
-                    <iframe src={item.url.replace('watch?v=', 'embed/')} style={{width: '100%', height: 'inherit'}}/>
+                    <iframe title={key}
+                    src={item.url.replace('watch?v=', 'embed/')} style={{width: '100%', height: 'inherit'}}/>
                   </div>                  
                 ))}
                 {/* <div className="video-card"></div>
@@ -268,16 +269,16 @@ const Views = ({ statistics, supports, opinions, projects, testimonials, feature
               >
                 {features.map((item, key) => (
                   <div className="video-card card-featured pt-4" key={key}>
-                    <div class="card mb-2">
+                    <div className="card mb-2">
                       <div className="text-center col-4 offset-4">
-                      <img class="card-img-top"
+                      <img className="card-img-top"
             src={item.image} alt="Card image cap" />              
                       </div>
           
-          <div class="card-body">
-                <h4 class="card-title">{item.title}</h4>
-                <p class="card-text">{item.subtitle}</p>
-                <a class="btn btn-outline-success btn-sm" href="#">Baca Selengkapnya</a>  
+          <div className="card-body">
+                <h4 className="card-title">{item.title}</h4>
+                <p className="card-text">{item.subtitle}</p>
+                <a className="btn btn-outline-success btn-sm" href="#">Baca Selengkapnya</a>  
           </div>
         </div>
                   </div>                  
@@ -356,6 +357,12 @@ const Views = ({ statistics, supports, opinions, projects, testimonials, feature
           </div>
         </div>
       </footer>
+      <LoadingOverlay
+        active={isLoading}
+        spinner
+        text='Loading...'
+        >
+      </LoadingOverlay>
     </div>
   );
 };
