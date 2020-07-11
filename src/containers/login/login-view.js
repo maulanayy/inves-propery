@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar } from "../../components";
 import { NavLink } from "react-router-dom";
 import { images } from "../../config"
-import { Input, Button } from "antd";
+import { Input, Button, Alert } from "antd";
 import LoadingOverlay from 'react-loading-overlay';
 
 
@@ -22,6 +22,12 @@ const View = (props) => {
                     Kembali
                   </h3>
                   <form noValidate>
+                    {
+                      props.error_message == '' ? null : <div className="md-form mb-5">
+                      <Alert message={props.error_message} type="error" closable></Alert>
+                    </div>
+                    }
+                    
                     <div className="md-form">
                       <label>Email</label>
                       <Input placeholder="Email" type="email" name="email" 

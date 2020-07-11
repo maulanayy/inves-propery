@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import View from "./login-view";
+import { connect } from 'react-redux';
 import { API } from "../../config";
+import reducer_user from '../../config/api-reducers/user';
 // const Controller = () => {
 //   return <View />;
 // };
@@ -12,7 +14,8 @@ class Login extends Component {
   state = {
     validation: null,
     email: '',
-    password: ''
+    password: '',
+    error_message: ''
   }
 
   textChanged = (field, value) => {
@@ -37,8 +40,15 @@ class Login extends Component {
     const state = this.state
     const params = {email: state.email, password: state.password}
     const loginRequest = await API.account.login(false, params);
-    
-    console.log('loginRequest', loginRequest)
+    const token = loginRequest.result && loginRequest.result.token 
+    if(token){
+      this.props.login_user(loginRequest.result)
+      // sessionStorage.setItem('token', token);
+      // sessionStorage.setItem('token_email', state.email);
+      document.location = '/'
+    }else{
+      this.setState({error_message: loginRequest.message})
+    }
   }
 
   
@@ -46,6 +56,7 @@ class Login extends Component {
   render(){
     return(<View 
       validation={this.state.validation}
+      error_message={this.state.error_message}
       isLoading={false}
       textChanged={this.textChanged}
       onSubmit={this.onSubmit}
@@ -53,4 +64,15 @@ class Login extends Component {
   }
 }
 
-export default Login;
+
+const mapStateToProps = (state) => ({
+  user: state.user
+});
+
+
+const mapDispatchToProps = (dispatch) => ({
+  login_user: (payload) => dispatch(reducer_user.login_user(payload)),
+});
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Login);

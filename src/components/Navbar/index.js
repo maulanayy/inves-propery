@@ -3,16 +3,17 @@ import { NavLink } from "react-router-dom";
 import { images } from "../../config";
 import { OffCanvas, OffCanvasMenu, OffCanvasBody } from "react-offcanvas";
 import { slide as Menu } from 'react-burger-menu'
-
+import { connect } from 'react-redux';
 // const [scrolled, setScrolled] = useState(false);
 
-export default class Navbar extends Component {
+class Navbar extends Component {
   constructor(props){
     super(props)
     this.state = {
       isMenuOpened: false  
     }
     
+    console.log('pprops', this.props)
     this.handleClick = this.handleClick.bind();
   }
   
@@ -32,7 +33,7 @@ export default class Navbar extends Component {
     return (
       <OffCanvas
         width={300}
-        transitionDuration={300}
+        transitionduration={300}
         effect={"parallax"}
         isMenuOpened={this.state.isMenuOpened}
         position={"right"}
@@ -115,7 +116,7 @@ export default class Navbar extends Component {
           </div>
           <ul className="list-unstyled sidebar-menu" >
                   <li>
-                    <NavLink to="/dashboard" className="link logout-menu"><i className="fa fa-sign-out"></i>Keluar<br/>                    
+                    <NavLink to="/logout" className="link logout-menu"><i className="fa fa-sign-out"></i>Keluar<br/>                    
                     </NavLink>
                   </li>                  
                 </ul>
@@ -130,6 +131,8 @@ export default class Navbar extends Component {
   }
 
   render() {    
+    const user = this.props.user
+
     return(
       <header className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
           <div className="navbar-desktop">
@@ -149,7 +152,7 @@ export default class Navbar extends Component {
                     <NavLink to="/about-us">Tentang Kami</NavLink>
                   </li>
                   <li>
-                    <a href="#gallery">Cara Kerja</a>
+                    <NavLink to="/how-it-works">Cara Kerja</NavLink>
                   </li>
                   <li>
                     <a href="#pricing">Blog</a>
@@ -158,12 +161,36 @@ export default class Navbar extends Component {
                     <NavLink to="/faq">FAQ</NavLink>
                   </li>
 
+                  {
+                    user && user.token  ? null :
                   <li className="login">
                     <NavLink to="/login">Masuk</NavLink>
                   </li>
+                  }
+                  {
+                    user && user.token  ? null :
                   <li className="register">
                     <NavLink to="/register">Daftar</NavLink>
                   </li>
+                  }
+
+                  {
+                    user && user.token  ?
+                  <li >
+                    <a className="nav-link dropdown-toggle mt-2" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <img className="mr-2 img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/40x40" style={{width: 30}}/>
+                  <span className="d-none d-lg-inline text-gray-600 small">{user.name}</span>                      
+                    </a>
+                    <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                      <NavLink to="/dashboard" className="dropdown-item">Dashboard</NavLink>
+                      <NavLink to="/Portofolio" className="dropdown-item">Portofolio</NavLink>
+                      <NavLink to="/profile" className="dropdown-item">Profile</NavLink>
+                      <div className="dropdown-divider"></div>
+                      <NavLink to="/logout" className="dropdown-item logout ">Keluar</NavLink>
+                    </div>
+                  </li>
+                  : null
+                  }
                 </ul>
               </nav>
             </div>    
@@ -183,10 +210,10 @@ export default class Navbar extends Component {
             <div className="logoTopbar text-center col-8">
               <img src={images.Logo} className="img-fluid" />
             </div>
-    { sessionStorage.getItem('token') ? <button className="btn"><img src={images.bellIcon} className="bellIcon"/> </button> : null}
-            <div className={ sessionStorage.getItem('token') ? 'navbar-right' : 'navbar-right col-3'}>
+    { user && user.token ? <button className="btn"><img src={images.bellIcon} className="bellIcon"/> </button> : null}
+            <div className={ user && user.token  ? 'navbar-right' : 'navbar-right col-3'}>
               {
-                 sessionStorage.getItem('token') ? this.renderCanvas() : <nav className="nav-menu d-lg-block"><ul>
+                 user && user.token  ? this.renderCanvas() : <nav className="nav-menu d-lg-block"><ul>
                 
                   <li className="register" style={{marginRight: 5}}>
                     <NavLink to="/register">Daftar</NavLink>
@@ -198,34 +225,22 @@ export default class Navbar extends Component {
                 </ul></nav>
               }
               
-              <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a className="dropdown-item" href="#">
-                  <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-                </a>
-                <a className="dropdown-item" href="#">
-                  <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Settings
-                </a>
-                <a className="dropdown-item" href="#">
-                  <i className="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
-                </a>
-                <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a>
-              </div>
+              
 
               
               
             </div>
           </div>
+          
         </header>
     )
 
   }
 }
 
-// export default Navbar;
+const mapStateToProps = (state) => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps,null)(Navbar);
+

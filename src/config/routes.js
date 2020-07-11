@@ -11,17 +11,24 @@ import Proyek from "../containers/proyek";
 import Forgot from "../containers/forgot-password";
 import Journey from "../containers/journey";
 import AboutUs from "../containers/about-us";
+import HowItWorks from "../containers/how-it-works";
 import JourneyOne from "../containers/journey/journey-one-view";
 import JourneyTwo from "../containers/journey/journey-two-view";
 import JourneyThree from "../containers/journey/journey-three-view";
 import JourneyFour from "../containers/journey/journey-four-view";
 import JourneyFive from "../containers/journey/journey-five-view";
 import JourneySix from "../containers/journey/journey-six-view";
+import Logout from "../containers/logout";
 
 const routes = [
   {
     path: "/",
     component: Home,
+    isPublic: true,
+  },
+  {
+    path: "/how-it-works",
+    component: HowItWorks,
     isPublic: true,
   },
   {
@@ -37,6 +44,11 @@ const routes = [
   {
     path: "/login",
     component: Login,
+    isPublic: true,
+  },
+  {
+    path: "/logout",
+    component: Logout,
     isPublic: true,
   },
   {

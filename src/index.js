@@ -6,9 +6,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import "antd/dist/antd.css";
 import "./styles/custom.css";
+import configureStore from './store/configureStore';
+import { Provider } from "react-redux"
+import rootReducer from "./reducers"
+import { createStore } from "redux";
+
+const store = configureStore()
 
 ReactDOM.render(
-    <App />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById("root")
 );
 

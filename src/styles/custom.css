@@ -19,6 +19,14 @@ form .ant-btn:not([disabled]):hover {
   background-color: #3cba92;
 }
 
+.nav-menu .dropdown-menu a.dropdown-item{
+  text-align: center !important;
+}
+
+.nav-menu .dropdown-menu a.dropdown-item.logout, .nav-link.logout{
+  color: #ff5c4a;
+}
+
 form .invalid-feedback {
   display: block;
 }
@@ -1286,12 +1294,12 @@ span {
   color: #000000;
 }
 
-.link:hover {
+.left-sidebar-menu .nav-link .link.active  {
   color: #000000;
   opacity: 1;
   text-decoration: none;
   background-image: linear-gradient(to right, #3cba92, #3cba92);
-  background-position: bottom left;
+  background-position: 17px 16px;
   background-repeat: no-repeat;
   background-size: 25% 3px;
 }

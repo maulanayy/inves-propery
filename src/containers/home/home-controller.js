@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import View from "./home-view";
 import axios from "axios";
-
+import reducer_user from '../../config/api-reducers/user';
 import { API } from "../../config";
 const Controller = () => {
   const source = useRef(null);
@@ -17,6 +17,8 @@ const Controller = () => {
   useEffect(() => {
     const _loadData = async () => {
       source.current = axios.CancelToken.source();
+      
+      
       setIsLoading(true)
       try {
         const dataStatistic = await API.home.statistic(source.current.token);

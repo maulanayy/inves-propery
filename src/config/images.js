@@ -27,6 +27,7 @@ images.bellIcon = require("../images/bell-icon.png");
 images.personWithQustionMark = require("../images/personWithQustionMark.png");
 images.footer1 = require("../images/footer-1.png");
 images.footer2 = require("../images/footer-2.png");
+images.howItWorks1 = require("../images/how-it-works-1.png");
 
 
 

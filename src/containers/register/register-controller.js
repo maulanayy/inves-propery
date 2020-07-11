@@ -8,7 +8,8 @@ class Register extends Component {
     email: '',
     password: '',
     phone_number: '',
-    name: ''
+    name: '',
+    error_message: ''
   }
 
   textChanged = (field, value) => {
@@ -44,7 +45,14 @@ class Register extends Component {
     const params = {email: state.email, password: state.password, name: state.name, phone_number: state.phone_number}
     const registerRequest = await API.account.register(false, params);
     
-    console.log('registerRequest', registerRequest)
+    const token = registerRequest.result && registerRequest.result.token 
+    if(token){
+      sessionStorage.setItem('token', token)
+      sessionStorage.setItem('token_email', state.email)
+      document.location = '/'
+    }else{
+      this.setState({error_message: registerRequest.message})
+    }
   }
 
   
@@ -52,6 +60,7 @@ class Register extends Component {
   render(){
     return(<View 
       validation={this.state.validation}
+      error_message={this.state.error_message}
       isLoading={false}
       textChanged={this.textChanged}
       onSubmit={this.onSubmit}
