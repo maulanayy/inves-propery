@@ -99,6 +99,13 @@ const account = {
       params: params,
             
     }),
+  changePassword : (cancelToken, params) => 
+    request({
+      url: `${ROOT_URL}/user/password`,
+      method: "POST",
+      params: params,
+      cancelToken      
+    }),  
 }
 
 const masterdata = {
