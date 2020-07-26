@@ -58,7 +58,7 @@ const LeftSideBar = () => {
           <ul className="nav flex-column mb-2 align-item-right">
             <li className="nav-link logout">
               <ExportOutlined twoToneColor="#ff0000" />
-              <a class="link link-exit ml-2" href="/logout">Keluar</a>
+              <a className="link link-exit ml-2" href="/logout">Keluar</a>
             </li>
           </ul>
         </div>

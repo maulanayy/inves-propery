@@ -8,8 +8,6 @@ import "antd/dist/antd.css";
 import "./styles/custom.css";
 import configureStore from './store/configureStore';
 import { Provider } from "react-redux"
-import rootReducer from "./reducers"
-import { createStore } from "redux";
 
 const store = configureStore()
 

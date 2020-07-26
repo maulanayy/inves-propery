@@ -43,8 +43,6 @@ class Login extends Component {
     const token = loginRequest.result && loginRequest.result.token 
     if(token){
       this.props.login_user(loginRequest.result)
-      // sessionStorage.setItem('token', token);
-      // sessionStorage.setItem('token_email', state.email);
       document.location = '/'
     }else{
       this.setState({error_message: loginRequest.message})

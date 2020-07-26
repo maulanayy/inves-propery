@@ -13,6 +13,7 @@ images.AssetTwo = require("../images/asset-2.png");
 images.AssetSix = require("../images/asset-6.png");
 images.cardImg = require("../images/card-img.png");
 images.Ilustrasi = require("../images/illustrasi.png");
+images.Ilustrasi_rumah = require("../images/Illustrasi_rumah.png");
 images.Journey = require("../images/journey-1.png");
 images.Journey2 = require("../images/journey-2.png");
 images.Journey3 = require("../images/journey-3.png");

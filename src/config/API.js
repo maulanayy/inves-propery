@@ -63,6 +63,20 @@ const faqs = {
 };
 
 const account = {
+  get : (cancelToken, params) => 
+    request({
+      url: `${ROOT_URL}/user/profile`,
+      method: "GET",
+      params: params,
+      cancelToken,      
+    }),
+  update : (cancelToken, params) => 
+    request({
+      url: `${ROOT_URL}/user/profile`,
+      method: "POST",
+      params: params,
+      cancelToken,      
+    }),
   login : (cancelToken, params) => 
     request({
       url: `${ROOT_URL}/user/login`,
@@ -77,10 +91,55 @@ const account = {
       params: params,
       cancelToken      
     }),
+  logout : (cancelToken, params) => 
+    request({
+      url: `${ROOT_URL}/user/logout`,
+      method: "GET",
+      cancelToken,
+      params: params,
+            
+    }),
+}
+
+const masterdata = {
+  provincesAll: (cancelToken) => 
+    request({
+      url: `${ROOT_URL}/masterdata/province?perPage=-1`,
+      method: "GET",
+      cancelToken
+    })
+  ,
+  provinces: (cancelToken) => 
+    request({
+      url: `${ROOT_URL}/masterdata/province`,
+      method: "GET",
+      cancelToken
+    })
+  ,
+  cities : (cancelToken, provinceId) => 
+    request({
+      url: `${ROOT_URL}/masterdata/city/province/${provinceId}`,
+      method: "GET",
+      cancelToken,
+  }),
+  citiesAll : (cancelToken, provinceId) => 
+    request({
+      url: `${ROOT_URL}/masterdata/city/province/${provinceId}?perPage=-1`,
+      method: "GET",
+      cancelToken,
+  }),
+  cityProjects : (cancelToken, provinceId) => 
+    request({
+      url: `${ROOT_URL}/masterdata/city/project`,
+      method: "GET",
+      cancelToken,
+  }),   
 }
 export default {
+  ROOT_URL,
   home,
   project,
   faqs,
   account,
+  masterdata
 };

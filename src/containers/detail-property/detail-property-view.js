@@ -4,8 +4,8 @@ import { Progress, InputNumber } from "antd";
 import { FileFilled } from "@ant-design/icons";
 import { images } from "../../config"
 
-const View = ({project}) => {
-  console.log(project)
+const View = (props) => {
+  let project = props.project
   return (
     <div>
       <Navbar />
@@ -13,14 +13,23 @@ const View = ({project}) => {
         <div className="container">
           <div className="row">
             <div className="col-lg-7">
-              <div className="galery">gallery</div>
+              <div className="row">
+                <div className="col-9">
+                  <img src={props.imgActive && props.imgActive['image_medium_cover']} className="galery img img-fluid" style={{objectFit: 'cover'}}/>
+                </div>
+                <div className="col-3" style={{height: 300, overflow: 'auto'}}>
+                    { 
+                    project.galleries && project.galleries.map((element, i) => (
+                      <img src={element['image_small_square']} className="mb-2 galery mini-galery" onClick={() => props.setActiveImage(element) }/>                      
+                    ))
+                    }
+                </div>
+              </div>
               <div className="description mt-4">
                 <h5>
                   <span>{project.title}</span>
                 </h5>
-                <p className="text-justify">
-                  {project.overview}
-                </p>
+                <div className="text-justify" dangerouslySetInnerHTML={{__html: unescape(project.overview)}} />                  
 
                 <p className="mt-5 mb-3">
                   Document :{" "}
@@ -110,16 +119,7 @@ const View = ({project}) => {
                 <p className="mt-3">
                   <span>Vortiland - Delution Enterprise</span>
                 </p>
-                <p className="text-justify">
-                  Vortiland bagian dari Delution Enterprise (Holding). Delution
-                  Entreprise memiliki 4 anak perusahaan, yaitu Delution
-                  Architect (Konsultan Perencanaan Arsitektur & Interior), CRI
-                  (Kontraktor Bangunan dan Interior), Onel (Furnishing), dan
-                  Vortiland (Developer Property). Karakter dari proyek Delution
-                  adalan arsitektur ikonik. Beberapa proyek yang pernah
-                  dikerjakan delution antara lain: Kantor Traveloka, Kantor DPD
-                  Golkar Jakarta, Kantor BBDO Indonesia dan Splow House.
-                </p>
+                <div className="text-justify" dangerouslySetInnerHTML={{__html: unescape(project.specification)}} />                  >
                 <a href="#">Cari Tahu Selengkapnya</a>
               </div>
             </div>
@@ -130,13 +130,15 @@ const View = ({project}) => {
                 Lokasi Proyek
                 <div className="row">
                   <div className="col-md-8">
-                    <img src={images.map} className="maps" alt="" />
+                  <iframe frameBorder="0" width="100%" height="100%"  src={project.mapUrl}>
+      </iframe>
+
                   </div>
                   <div className="col-md-4">
                     <img
-                      src={images.map}
+                      src={images.Ilustrasi_rumah}
                       style={{ objectFit: "contain", width: 150 }}
-                      alt=""
+                      className="mb-2"
                     />
                     {project.address}
                   </div>

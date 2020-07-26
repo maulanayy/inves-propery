@@ -1,19 +1,24 @@
-import React, {Component} from "react";
+import { Component } from "react";
 import { connect } from 'react-redux';
 import { API } from "../../config";
 import reducer_user from '../../config/api-reducers/user';
-// const Controller = () => {
-//   return <View />;
-// };
-
-// export default Controller;
-
 
 class Logout extends Component {
   
-  componentDidMount(){
-      this.props.logout_user()
+  componentDidMount(){    
+    this.requestAPI();      
+  }
+
+  requestAPI = async () => {
+    const props = this.props;
+    const user = props.user;
+    const params = {token: user.token, token_email: user.email}
+    const logoutRequest = await API.account.logout(false, params);
+    
+    if(logoutRequest){
+      this.props.logout_user();
       document.location.href = '/'
+    }
   }
 
   render(){
@@ -27,7 +32,7 @@ const mapStateToProps = (state) => ({
 
 
 const mapDispatchToProps = (dispatch) => ({
-    logout_user: (payload) => dispatch(reducer_user.logout_user()),
+    logout_user: () => dispatch(reducer_user.logout_user()),
 });
 
 

@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import View from "./register-view";
 import { API } from "../../config";
+import reducer_user from '../../config/api-reducers/user';
+import { connect } from 'react-redux';
 
 class Register extends Component {
   state = {
@@ -47,8 +49,7 @@ class Register extends Component {
     
     const token = registerRequest.result && registerRequest.result.token 
     if(token){
-      sessionStorage.setItem('token', token)
-      sessionStorage.setItem('token_email', state.email)
+      this.props.logout_user(registerRequest.result);
       document.location = '/'
     }else{
       this.setState({error_message: registerRequest.message})
@@ -68,4 +69,16 @@ class Register extends Component {
   }
 }
 
-export default Register;
+
+
+const mapStateToProps = (state) => ({
+  user: state.user
+});
+
+
+const mapDispatchToProps = (dispatch) => ({
+  login_user: (payload) => dispatch(reducer_user.login_user(payload)),
+});
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Register);

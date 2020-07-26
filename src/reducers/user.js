@@ -5,13 +5,7 @@ const merge_object = (state,payload) => {
     return Object.assign({},state,payload);
 };
 
-const registration = (state,payload) => {
-    let newState = payload.address_list == null ? Object.assign({},payload,{address_list: []}) : payload;
-    return newState;
-};
-
 const login = (state,payload) => {
-    console.log('this is', (payload))
     return Object.assign({},payload);
 };
 

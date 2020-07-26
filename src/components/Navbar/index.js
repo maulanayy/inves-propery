@@ -13,7 +13,6 @@ class Navbar extends Component {
       isMenuOpened: false  
     }
     
-    console.log('pprops', this.props)
     this.handleClick = this.handleClick.bind();
   }
   
@@ -30,6 +29,8 @@ class Navbar extends Component {
  
 
   renderCanvas() {
+    const user = this.props.user;
+    
     return (
       <OffCanvas
         width={300}
@@ -43,7 +44,7 @@ class Navbar extends Component {
           style={{ fontSize: "30px" }}
         >
           <button id="userDropdown" className="btn dropdown-toggle" onClick={this.handleClick}>
-            <img className="imgProfile rounded-circle border border-dark" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" />
+            <img className="imgProfile rounded-circle border border-dark" src={user.picture || images.profileImg} />
           </button>          
         </OffCanvasBody>
         <div className={this.state.isMenuOpened ? "profileMenuOverlay" : ''} onClick={this.handleClick}></div>
@@ -51,7 +52,7 @@ class Navbar extends Component {
           <div className="container">
             <div className="row">
               <div className="col-4">
-                <img className="imgProfile rounded-circle border border-dark" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" />
+                <img className="imgProfile rounded-circle border border-dark" src={user.picture || images.profileImg} />
               </div>
               <div className="col-8">
                 <div className="row">
@@ -178,7 +179,7 @@ class Navbar extends Component {
                     user && user.token  ?
                   <li >
                     <a className="nav-link dropdown-toggle mt-2" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <img className="mr-2 img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/40x40" style={{width: 30}}/>
+                      <img className="mr-2 img-profile rounded-circle" src={user.picture || images.profileImg} style={{width: 30}}/>
                   <span className="d-none d-lg-inline text-gray-600 small">{user.name}</span>                      
                     </a>
                     <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

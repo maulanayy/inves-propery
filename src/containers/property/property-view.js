@@ -4,7 +4,9 @@ import { Navbar } from "../../components";
 import { Progress } from "antd";
 import { EnvironmentOutlined } from "@ant-design/icons";
 
-const View = ({ projects, setStatus, status, setLokasi, lokasi, setHarga, harga, setPeriode, periode, onSubmit, setKeyword }) => {
+const View = ({ cities, projects, setStatus, status, 
+  setLokasi, lokasi, setHarga, harga, 
+  setPeriode, periode, onSubmit, setKeyword }) => {
   return (
     <React.Fragment>
       <Navbar />
@@ -51,21 +53,15 @@ const View = ({ projects, setStatus, status, setLokasi, lokasi, setHarga, harga,
                   </h6>
                 </div>
                 <div className="row ml-1">
-                  <div className="col-md-3">
-                    <button className={`btn-filter ${lokasi === 'jakarta' ? 'active' : ''}`} onClick={() => setLokasi(lokasi === 'jakarta' ? '' : 'jakarta')}>
-                      Jakarta
-                    </button>
-                  </div>
-                  <div className="col-md-3">
-                    <button className={`btn-filter ${lokasi === 'bandung' ? 'active' : ''}`} onClick={() => setLokasi(lokasi === 'bandung' ? '' : 'bandung')}>
-                      Bandung
-                    </button>
-                  </div>
-                  <div className="col-md-3">
-                    <button className={`btn-filter ${lokasi === 'malang' ? 'active' : ''}`} onClick={() => setLokasi(lokasi === 'malang' ? '' : 'malang')}>
-                      Malang
-                    </button>
-                  </div>
+                  {
+                    cities && cities.map(item => (
+                      <div className="col-md-3">
+                        <button className={`btn-filter ${lokasi === item.id ? 'active' : ''}`} onClick={() => setLokasi(lokasi === item.id ? '' : item.id)}>
+                          {item.name}
+                        </button>
+                      </div>
+                    ))
+                  }                  
                 </div>
                 <div className="row ml-1">
                   <h6>

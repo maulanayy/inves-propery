@@ -6,13 +6,13 @@ const NavbarDashboard = () => {
       <nav className="nav-menu d-none d-lg-block">
         <ul>
           <li>
-            <a href="#header">Daftar Properti</a>
+            <NavLink to="/properti">Daftar Properti</NavLink>
           </li>
           <li>
-            <a href="#features">Tentang Kami</a>
+            <NavLink to="/about-us">Tentang Kami</NavLink>
           </li>
           <li>
-            <a href="#gallery">Cara Kerja</a>
+            <NavLink to="/how-it-works">Cara Kerja</NavLink>
           </li>
           <li>
             <NavLink to="/faq">FAQ</NavLink>
