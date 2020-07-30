@@ -179,7 +179,7 @@ class Navbar extends Component {
                     user && user.token  ?
                   <li >
                     <a className="nav-link dropdown-toggle mt-2" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <img className="mr-2 img-profile rounded-circle" src={user.picture || images.profileImg} style={{width: 30}}/>
+                      <img className="mr-2 img-profile rounded-circle" src={user.picture || images.profileImg} style={{width: 30, height: 30}}/>
                   <span className="d-none d-lg-inline text-gray-600 small">{user.name}</span>                      
                     </a>
                     <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

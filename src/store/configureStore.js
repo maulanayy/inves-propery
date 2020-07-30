@@ -1,4 +1,6 @@
 import { createStore, applyMiddleware, compose } from "redux";
+import { routerMiddleware } from 'connected-react-router/immutable';
+import { fromJS } from 'immutable';
 import history from "./history";
 import appReducer from "../reducers";
 import thunk from 'redux-thunk'
@@ -23,8 +25,24 @@ const rootReducer = (state, action) => {
 export default function configureStore(initialState) {
     
     const persistedReducer = persistReducer(persistConfig, rootReducer);
+    const middlewares = [thunk, routerMiddleware(history)];
+
+    const enhancers = [applyMiddleware(...middlewares)];
   
-    const store = createStore(persistedReducer, compose(applyMiddleware(thunk)));
+    // If Redux DevTools Extension is installed use it, otherwise use Redux compose
+    /* eslint-disable no-underscore-dangle, indent */
+    const composeEnhancers = process.env.NODE_ENV !== 'production'
+      && typeof window === 'object'
+      && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+        ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+            // Prevent recomputing reducers for `replaceReducer`
+            shouldHotReload: false,
+          })
+        : compose;
+    const store = createStore(persistedReducer, 
+      fromJS(initialState),
+      composeEnhancers(...enhancers),
+    );
     persistStore(store)
     return store;
 }

@@ -1186,6 +1186,7 @@ span {
 
 .right-sidebar .profile img {
   width: 160px;
+  height: 160px;
   object-fit: contain;
 }
 
@@ -1231,7 +1232,7 @@ span {
 }
 
 .bank-account {
-  margin: 30px 0 0 15px;
+  margin: 30px 10px 0 15px;
   font-family: LouisGeorgeCafe;
   font-size: 14px;
   font-weight: bold;
@@ -1259,6 +1260,30 @@ span {
   letter-spacing: 0.45px;
   text-align: left;
   color: #ffffff;
+}
+
+.bank-account .empty-bank-card {
+    height: 120px;
+    border-radius: 30px;
+    border: solid 2px #707070;
+    background-color: #ffffff;
+  
+}
+
+.bank-account .empty-bank-card .text-center {
+  margin-top: 20px;
+  width: 100%;
+  height: 100%;
+  opacity: 0.61;
+  font-family: LouisGeorgeCafe;
+  font-size: 15px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.28;
+  letter-spacing: normal;
+  text-align: center;
+  color: #000000;
 }
 /* Left Side bar */
 .left-sidebar {
@@ -1916,6 +1941,36 @@ Note: Beware of modifying this element as it can break the animations - you shou
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
+}
+
+.Rectangle-73  {
+  height: 205px;  
+}
+
+.Rectangle-73 a svg {
+  height: 100%;
+  color: #3cba92;
+}
+
+
+.Rectangle-74  {
+  width: 406px;
+  height: 205px;
+  opacity: 0.6;
+  border-radius: 30px;
+  background-color: #000000;
+}
+
+
+.Rectangle-74-plus {
+  
+  font-family: LouisGeorgeCafe;
+  font-size: 116px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  text-align: center;
+  color: #ffffff;
 }
 
 @media (max-width: 767px) {

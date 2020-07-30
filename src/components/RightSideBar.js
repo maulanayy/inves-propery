@@ -2,26 +2,69 @@ import React, { Component } from "react";
 import { images } from "../config";
 import { NavLink } from "react-router-dom";
 import { connect } from 'react-redux';
-import { Modal, Input , Button, Alert} from "antd";
+import { Modal, Input , Button, Alert, Form, Select} from "antd";
 import { API } from "../config";
 import axios from "axios";
 import reducer_user from '../config/api-reducers/user';
 
-
-// const showModal = () => {
-//   password;
-// };
+const layout = {
+  labelCol: { span: 8 },
+  wrapperCol: { span: 16 },
+};
+const tailLayout = {
+  wrapperCol: { offset: 8, span: 16 },
+};
 
 class RightSideBar extends Component {
   state = {
     showModalPassword: false,
+    showModalBanks: false,
     validation: null,
     password: '',
     password_confirm: '',
     alert_message: null,
     alert_type: null,
-    showSuccessPassword: false
+    showSuccessPassword: false,
+    banks: []
   }
+
+  UNSAFE_componentWillReceiveProps = (nextProps) => {
+    if(nextProps.user) {
+      this.getBanks(nextProps)
+    }
+  }
+
+  getBanks = async (props) => {
+    
+    const params = {
+      token: props.user.token, token_email: props.user.email, 
+    }
+    
+    const bankRequest = await API.banks.get(false, params);
+    
+    if(bankRequest && bankRequest.result){
+      console.log(bankRequest.result)
+      
+      this.setState({banks: bankRequest.result})
+      
+      // setTimeout(() => {
+      //   this.setState({
+      //     showModalPassword: false,          
+      //     showSuccessPassword: true
+      //   });
+      // }, 2000);
+    }else{
+      // this.setState({error_message: updateRequest.message, alert_type: 'error'})
+    }
+  }
+
+  onFinish = values => {
+    console.log('Success:', values);
+  };
+
+  onFinishFailed = errorInfo => {
+    console.log('Failed:', errorInfo);
+  };
 
   textChanged = (field, value) => {
     let validation = this.state.validation || {}
@@ -71,7 +114,13 @@ class RightSideBar extends Component {
 
   showModal = (name) => {
     this.setState({
-      [`showModal${name}`]: true,
+      [`showModal${name}`]: true
+    });
+  };
+
+  hideModal = (name) => {
+    this.setState({
+      [`showModal${name}`]: false
     });
   };
 
@@ -88,6 +137,113 @@ class RightSideBar extends Component {
       </Modal>
       )
   }
+
+  renderBank(props, state){
+    console.log('banks', state.banks)
+    if(state.banks && state.banks.length > 0){
+      
+      return <div className="bank-list">         
+      </div>
+    }else{
+      return(
+        <div className="empty-bank-card" onClick={() => this.showModal('Banks') }>
+          <div class="col-xs-1 center-block text-center">
+            :( <br />
+            Belum ada <br />
+            rekening terdaftar
+          </div>     
+          <div className="plusIcon text-right" style={{marginTop: '-95px',
+    marginRight: '-11px', color: '#3cba92'}}><i className="fa fa-plus-circle fa-2x"></i></div>
+    
+        </div>
+  )
+    }
+  }
+  renderBankForm() {
+    return (
+      <Form
+        layout='vertical'
+        name="basic"
+        initialValues={{ bank_name: "bca" }}
+        onFinish={this.onFinish}
+        onFinishFailed={this.onFinishFailed}
+      >
+        <Form.Item
+          
+          name="bank_name"
+          rules={[{ required: true, message: 'Mohon isi nama bank!' }]}
+        >
+          <Select name="bank_name" placeholder="Nama Bank">
+            <Select.Option value="bca">BCA</Select.Option>
+            <Select.Option value="mandiri">Mandiri</Select.Option>
+          </Select>
+        </Form.Item>
+
+        <Form.Item
+          
+          name="no_rek"
+          rules={[{ required: true, message: 'Mohon isi nomor rekening!' }]}
+        >
+          <Input placeholder="Nomor Rekening"/>
+        </Form.Item>
+
+        <Form.Item
+          
+          name="an_rek"
+          rules={[{ required: true, message: 'Mohon isi atas nama!' }]}
+        >
+          <Input placeholder="Atas Nama"/>
+        </Form.Item>
+  
+        <Form.Item {...tailLayout}>
+          <Button type="primary" htmlType="submit" className="button btn">
+            Submit
+          </Button>
+        </Form.Item>
+      </Form>
+    );
+  }
+  
+  renderModalBanks(){
+    return(<Modal 
+      onCancel={() => this.hideModal('Banks')}
+      width={'60%'}
+      visible={this.state.showModalBanks}
+      footer={null}>
+        <div className="col-12">
+          <div className="row">
+            <div className="col-3">
+              <div class="col-xs-1 center-block text-center Rectangle-73">
+                <a href="#">
+                  <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-chevron-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> 
+                    <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                  </svg>
+                </a>
+              </div>      
+            </div>
+            <div className="col-6">
+              <div className="Rectangle-74">
+              <div class="col-xs-1 center-block text-center Rectangle-74-plus">+</div>
+              </div>
+            </div>
+            <div className="col-3">
+              <div class="col-xs-1 center-block text-center Rectangle-73">
+                  <a href="#">
+                    <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                  </a>
+                </div>
+            </div>
+          </div>
+          <div className="row" style={{margin: '20px 0 20px 0', borderBottom: '1px solid #eeeeee'}}></div>
+          <div className="row">
+            { this.renderBankForm() }
+          </div>
+        </div>
+      </Modal>)
+  }
+
   renderModalPassword(){
     const state = this.state;
 
@@ -194,6 +350,7 @@ class RightSideBar extends Component {
   }
 
   render(){
+    const state = this.state;
     const props = this.props;
     const user = props.user;
 
@@ -201,6 +358,7 @@ class RightSideBar extends Component {
       <nav className="right-sidebar">
         { this.renderSuccessPassword() }
         { this.renderModalPassword() }
+        { this.renderModalBanks() }
         <div className="right-sidebar-sticky">
           <div className="profile text-center ">
             <Input id="file-selfie" type="file" style={{display: 'none'}} onChange={(e) => this.onUploaded(e)}/>
@@ -247,7 +405,9 @@ class RightSideBar extends Component {
 
           <div className="bank-account">
             Rekening Bank
-            <div className="bank-list"></div>
+            {
+              this.renderBank(props, state)
+            }
           </div>
         </div>
       </nav>

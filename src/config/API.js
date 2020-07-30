@@ -142,11 +142,25 @@ const masterdata = {
       cancelToken,
   }),   
 }
+
+const banks = {
+  get: (cancelToken, params) => 
+    request({
+      url: `${ROOT_URL}/user/bank`,
+      method: "GET",
+      params: params,
+      cancelToken
+      
+    })
+  ,
+}
+
 export default {
   ROOT_URL,
   home,
   project,
   faqs,
   account,
-  masterdata
+  masterdata,
+  banks
 };
