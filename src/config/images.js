@@ -30,7 +30,7 @@ images.footer1 = require("../images/footer-1.png");
 images.footer2 = require("../images/footer-2.png");
 images.howItWorks1 = require("../images/how-it-works-1.png");
 images.passwordSaved = require("../images/password-saved.png");
-
+images.handshake = require("../images/handshake.png");
 
 
 export default images;

@@ -259,12 +259,12 @@ span {
   float: left;
 }
 
-.nav-menu a {
+.nav-menu a, .checkout-card p, .checkout-card p span {
   display: block;
   position: relative;
   padding: 8px 15px 12px 15px;
   transition: 0.3s;
-  font-family: "LouisGeorgeCafe";
+  font-family: LouisGeorgeCafe;
   font-size: 14px;
   font-weight: bolder;
   font-stretch: normal;
@@ -273,6 +273,10 @@ span {
   letter-spacing: normal;
   text-align: left;
   color: #000000;
+  text-transform: none;
+}
+.checkout-card p span {
+  padding: 0
 }
 
 .nav-menu a:hover,
@@ -444,6 +448,12 @@ span {
   color: #fff;
   font-size: 14px;
   position: relative;
+}
+
+.start-button-border {
+  border: 1px solid #3cba92;
+  color: #3cba92;
+  background-color: #fff;
 }
 
 .ojk {
@@ -725,6 +735,13 @@ span {
 
 .video-card iframe {
   border-radius: 10px;
+}
+
+.video-card.checkout-card {
+  width: 100%;
+  height: auto;
+  margin: 0;
+
 }
 
 /*--------------------------------------------------------------
@@ -1563,7 +1580,8 @@ span {
   margin-bottom: 24px;
 }
 
-.ant-btn.btn.button.btn-primary.ant-btn-primary span, .ant-btn.btn.button.btn-primary.ant-btn-primary:hover span{
+.ant-btn.btn.button.btn-primary.ant-btn-primary span, .ant-btn.btn.button.btn-primary.ant-btn-primary:hover span,
+.ant-btn.btn.button.ant-btn-dangerous.ant-btn-primary span, .ant-btn.btn.button.ant-btn-dangerous.ant-btn-primary:hover span{
   color: #fff;
 }
 /*--------------------------------------------------------------

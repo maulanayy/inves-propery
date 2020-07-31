@@ -172,6 +172,17 @@ const banks = {
   ,
 }
 
+const paymentMethods = {
+  get: (cancelToken) => 
+    request({
+      url: `${ROOT_URL}/payment-method`,
+      method: "GET",
+      cancelToken
+      
+    })
+  ,
+}
+
 export default {
   ROOT_URL,
   home,
@@ -179,5 +190,6 @@ export default {
   faqs,
   account,
   masterdata,
-  banks
+  banks,
+  paymentMethods
 };

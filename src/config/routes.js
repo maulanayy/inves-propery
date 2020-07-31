@@ -19,6 +19,8 @@ import JourneyFour from "../containers/journey/journey-four-view";
 import JourneyFive from "../containers/journey/journey-five-view";
 import JourneySix from "../containers/journey/journey-six-view";
 import Logout from "../containers/logout";
+import Checkout from "../containers/checkout";
+import CheckoutSuccess from "../containers/checkout-success";
 
 const routes = [
   {
@@ -125,6 +127,16 @@ const routes = [
     path: "/about-us",
     component: AboutUs,
     isPublic: false,
+  },
+  {
+    path: "/checkout/:slug?",
+    component: Checkout,
+    isPublic: false,
+  },
+  {
+    path: "/checkout-success",
+    component: CheckoutSuccess,
+    isPublic: true,
   },
 ];
 

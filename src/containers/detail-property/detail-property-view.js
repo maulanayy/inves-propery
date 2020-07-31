@@ -3,6 +3,7 @@ import { Navbar } from "../../components";
 import { Progress, InputNumber } from "antd";
 import { FileFilled } from "@ant-design/icons";
 import { images } from "../../config"
+import { NavLink } from "react-router-dom";
 
 const View = (props) => {
   let project = props.project
@@ -70,8 +71,9 @@ const View = (props) => {
                     <InputNumber
                       min={1}
                       max={10}
-                      defaultValue={3}
+                      defaultValue={project.share_count}
                       className="search"
+                      onChange={(e) => props.setSlotCount(e)}
                     />
                   </div>
                   <div className="col sm-4">
@@ -101,7 +103,7 @@ const View = (props) => {
                 </div>
                 <div className="row mt-3">
                   <div className="col text-center">
-                    <a href="#"> Inves Sekarang</a>
+                    <NavLink to={`/checkout/${project.slug}?slot=${props.slot}`}>Inves Sekarang</NavLink>
                   </div>
                 </div>
               </div>
