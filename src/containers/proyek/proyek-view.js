@@ -1,8 +1,17 @@
 import React from "react";
 import { Navbar } from "../../components";
-import { Input } from "antd";
+import { Form, Input, Button, Alert } from 'antd';
 
-const View = () => {
+const { TextArea } = Input;
+
+const layout = {
+  labelCol: { span: 8 },
+  wrapperCol: { span: 28 },
+};
+const tailLayout = {
+  wrapperCol: { offset: 11, span: 2 },
+};
+const View = (props) => {
   return (
     <React.Fragment>
       <Navbar />
@@ -15,46 +24,94 @@ const View = () => {
               </div>
             </div>
             <div className="row">
-              <div className="col-12 col-lg-6">
-                <label>Email</label>
-                <Input name="email" />
-              </div>
-              <div className="col-12 col-lg-6">
-                <label>Kapan Anda Membutuhkan Dana ?</label>
-                <Input name="email" />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-12 col-lg-6">
-                <label>Nama Lengkap</label>
-                <Input name="email" />
-              </div>
-              <div className="col-12 col-lg-6">
-                <label>Estimasi Durasi</label>
-                <Input name="email" />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-12 col-lg-6">
-                <label>No Hp</label>
-                <Input name="email" />
-              </div>
-              <div className="col-12 col-lg-6">
-                <label>Dari mana tahu InvesProperti.id ?</label>
-                <Input name="email" />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-12 col-lg-6">
-                <label>Perusahaan</label>
-                <Input name="email" />
+              <div className="col-12">
+                <Form
+                  {...layout}
+                  name="basic"
+                  initialValues={{ remember: true }}
+                  layout={'inline'}
+                  onFinish={(e) => props.onSubmit(e)}
+                  onFinishFailed={(e) => props.onSubmitFailed(e)}
+                >
+                  {
+                      props.error_message == '' ? null : <div className="md-form mb-5">
+                      <Alert message={props.error_message} type="error" closable></Alert>
+                    </div>
+                    }
+                    
 
-                <label>Jumlah Dana yang dibutuhkan</label>
-                <Input name="email" />
-              </div>
-              <div className="col-12 col-lg-6">
-                <label>Dari mana tahu InvesProperti.id ?</label>
-                <Input name="email" />
+                  <div className="col-6">
+                    <Form.Item
+                      name="email"
+                      rules={[{ required: true, message: 'Please input your email!' }]}
+                    >
+                      <Input placeholder="Email" type={'email'} />
+                    </Form.Item>
+
+                    <Form.Item
+                      name="full_name"
+                      rules={[{ required: true, message: 'Please input your full name!' }]}
+                    >
+                      <Input placeholder="Nama Lengkap" />
+                    </Form.Item>
+                    <Form.Item
+                      name="no_hp"
+                      rules={[{ required: true, message: 'Please input your phone number!' }]}
+                    >
+                      <Input placeholder="No HP"/>
+                    </Form.Item>
+                    <Form.Item
+                      name="company"
+                      
+                    >
+                      <Input placeholder="Perusahaan (Opsional)"/>
+                    </Form.Item>
+                    <Form.Item
+                      
+                      name="cost"
+                      rules={[{ required: true, message: 'Please input this field!' }]}
+                    >
+                      <Input placeholder="Jumlah Dana yang Dibutuhkan"/>
+                    </Form.Item>
+                  </div>
+                  <div className="col-6">
+                    <Form.Item
+                      
+                      name="time_needed"
+                      rules={[{ required: true, message: 'Please input this field!' }]}
+                    >
+                      <Input placeholder="Kapan Anda Membutuhkan Dana ?" />
+                    </Form.Item>
+                    <Form.Item
+                      
+                      name="duration"
+                      rules={[{ required: true, message: "Please input duration's estimation!" }]}
+                    >
+                      <Input placeholder="Estimasi Durasi" />
+                    </Form.Item>
+                    <Form.Item
+                      
+                      name="referrer"
+                      rules={[{ required: true, message: 'Please input this field!' }]}
+                    >
+                      <Input placeholder="Dari mana tahu InvesProperti.id" />
+                    </Form.Item>
+                    <Form.Item
+                      name="desc"
+                      rules={[{ required: true, message: 'Please input project description!' }]}
+                    >
+                      <TextArea placeholder="Deskripsi Proyek" style={{height: 88}}/>
+                    </Form.Item>
+                  </div>
+                  
+                  <div className="col-12">
+                  <Form.Item {...tailLayout}>
+                    <Button type="primary" htmlType="submit" className="btn button btn-primary">
+                      Kirim
+                    </Button>
+                  </Form.Item>
+                  </div>
+                </Form>
               </div>
             </div>
           </div>

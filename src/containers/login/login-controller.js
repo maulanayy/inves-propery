@@ -15,7 +15,8 @@ class Login extends Component {
     validation: null,
     email: '',
     password: '',
-    error_message: ''
+    error_message: '',
+    isLoading: false
   }
 
   textChanged = (field, value) => {
@@ -36,16 +37,17 @@ class Login extends Component {
   }
 
   onSubmit = async () => {
-    
+    this.setState({isLoading: true})
     const state = this.state
     const params = {email: state.email, password: state.password}
     const loginRequest = await API.account.login(false, params);
     const token = loginRequest.result && loginRequest.result.token 
     if(token){
+      this.setState({isLoading: false})
       this.props.login_user(loginRequest.result)
       document.location = '/'
     }else{
-      this.setState({error_message: loginRequest.message})
+      this.setState({error_message: loginRequest.message, isLoading: false})
     }
   }
 
@@ -55,7 +57,7 @@ class Login extends Component {
     return(<View 
       validation={this.state.validation}
       error_message={this.state.error_message}
-      isLoading={false}
+      isLoading={this.state.isLoading}
       textChanged={this.textChanged}
       onSubmit={this.onSubmit}
     />)

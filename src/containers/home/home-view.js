@@ -209,7 +209,7 @@ const Views = ({ isLoading, statistics, supports, opinions, projects, testimonia
                 </h4>
                 <div className="row item-desktop">
                   <div className="col-lg-6">
-                    <a href="#" className="start-button">
+                    <a href="/proyek" className="start-button">
                       Hubungi Kami
                     </a>
                   </div>

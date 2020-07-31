@@ -106,6 +106,24 @@ const account = {
       params: params,
       cancelToken      
     }),  
+  banks: (cancelToken, params) => 
+    request({
+      url: `${ROOT_URL}/user/bank`,
+      method: "GET",
+      params: params,
+      cancelToken
+      
+    })
+  ,  
+  banksAdd: (cancelToken, params) => 
+    request({
+      url: `${ROOT_URL}/user/bank/create`,
+      method: "POST",
+      params: params,
+      cancelToken
+      
+    })
+  ,  
 }
 
 const masterdata = {
@@ -144,11 +162,10 @@ const masterdata = {
 }
 
 const banks = {
-  get: (cancelToken, params) => 
+  get: (cancelToken) => 
     request({
-      url: `${ROOT_URL}/user/bank`,
+      url: `${ROOT_URL}/bank`,
       method: "GET",
-      params: params,
       cancelToken
       
     })

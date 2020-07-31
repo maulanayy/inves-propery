@@ -54,8 +54,8 @@ const View = ({ cities, projects, setStatus, status,
                 </div>
                 <div className="row ml-1">
                   {
-                    cities && cities.map(item => (
-                      <div className="col-md-3">
+                    cities && cities.map((item, key) => (
+                      <div className="col-md-3" key={key}>
                         <button className={`btn-filter ${lokasi === item.id ? 'active' : ''}`} onClick={() => setLokasi(lokasi === item.id ? '' : item.id)}>
                           {item.name}
                         </button>

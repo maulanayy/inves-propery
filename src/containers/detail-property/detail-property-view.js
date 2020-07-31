@@ -119,7 +119,7 @@ const View = (props) => {
                 <p className="mt-3">
                   <span>Vortiland - Delution Enterprise</span>
                 </p>
-                <div className="text-justify" dangerouslySetInnerHTML={{__html: unescape(project.specification)}} />                  >
+                <div className="text-justify" dangerouslySetInnerHTML={{__html: unescape(project.specification)}} />
                 <a href="#">Cari Tahu Selengkapnya</a>
               </div>
             </div>

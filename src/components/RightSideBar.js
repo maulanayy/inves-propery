@@ -24,28 +24,47 @@ class RightSideBar extends Component {
     password_confirm: '',
     alert_message: null,
     alert_type: null,
+    alert_message_bank: null,
+    alert_type_bank: null,
     showSuccessPassword: false,
-    banks: []
+    banks: [],
+    user_banks: []
+  }
+
+  componentDidMount() {
+    this.getBanks()
   }
 
   UNSAFE_componentWillReceiveProps = (nextProps) => {
     if(nextProps.user) {
-      this.getBanks(nextProps)
+      this.getUserBanks(nextProps);
     }
   }
 
   getBanks = async (props) => {
     
+    const bankRequest = await API.banks.get(false);
+    
+    if(bankRequest && bankRequest.result){
+      
+      this.setState({banks: bankRequest.result.data})
+    }else{
+      // this.setState({error_message: updateRequest.message, alert_type: 'error'})
+    }
+  }
+
+  getUserBanks = async (props) => {
+    
     const params = {
       token: props.user.token, token_email: props.user.email, 
     }
     
-    const bankRequest = await API.banks.get(false, params);
+    const bankRequest = await API.account.banks(false, params);
     
     if(bankRequest && bankRequest.result){
       console.log(bankRequest.result)
       
-      this.setState({banks: bankRequest.result})
+      this.setState({user_banks: bankRequest.result.data})
       
       // setTimeout(() => {
       //   this.setState({
@@ -58,8 +77,29 @@ class RightSideBar extends Component {
     }
   }
 
-  onFinish = values => {
+  addBank = async (values) => {
     console.log('Success:', values);
+    const props = this.props;
+    const params = {
+      token: props.user.token, token_email: props.user.email, 
+      bank_id: values.bank_name, 
+      account_name: values.an_rek, 
+      account_number: values.no_rek
+    }
+    
+    const bankRequest = await API.account.banksAdd(false, params);
+    
+    if(bankRequest && bankRequest.result){
+      console.log(bankRequest.result)
+      
+      this.setState({alert_message_bank: 'Bank added successfully. Please wait we are reloading...', alert_type_bank: 'success'})
+      
+      setTimeout(() => {
+        window.location = ""
+      }, 3000);
+    }else{
+      this.setState({error_message: bankRequest.message, alert_type: 'error'})
+    }
   };
 
   onFinishFailed = errorInfo => {
@@ -87,7 +127,6 @@ class RightSideBar extends Component {
   }
 
   onSubmitPassword = async () => {
-    console.log('onSubmitPassword')
     const state = this.state
     const props = this.props
 
@@ -139,8 +178,7 @@ class RightSideBar extends Component {
   }
 
   renderBank(props, state){
-    console.log('banks', state.banks)
-    if(state.banks && state.banks.length > 0){
+    if(state.user_banks && state.user_banks.length > 0){
       
       return <div className="bank-list">         
       </div>
@@ -159,23 +197,34 @@ class RightSideBar extends Component {
   )
     }
   }
+
   renderBankForm() {
+    const state = this.state;
+    
     return (
       <Form
         layout='vertical'
         name="basic"
-        initialValues={{ bank_name: "bca" }}
-        onFinish={this.onFinish}
+        onFinish={(e) => this.addBank(e)}
         onFinishFailed={this.onFinishFailed}
       >
+        {
+              state.alert_message_bank == null ? null : <div className="md-form mb-5">
+              <Alert message={state.alert_message_bank} type={state.alert_type_bank} closable></Alert>
+            </div>
+            }
+
         <Form.Item
           
           name="bank_name"
           rules={[{ required: true, message: 'Mohon isi nama bank!' }]}
         >
           <Select name="bank_name" placeholder="Nama Bank">
-            <Select.Option value="bca">BCA</Select.Option>
-            <Select.Option value="mandiri">Mandiri</Select.Option>
+            {
+              state.banks && state.banks.map(e => (
+              <Select.Option value={e.id} key={e.id}>{e.name}</Select.Option>
+              ))
+            }            
           </Select>
         </Form.Item>
 
@@ -238,7 +287,10 @@ class RightSideBar extends Component {
           </div>
           <div className="row" style={{margin: '20px 0 20px 0', borderBottom: '1px solid #eeeeee'}}></div>
           <div className="row">
-            { this.renderBankForm() }
+            <div className="col-5">
+              { this.renderBankForm() }
+            </div>
+            
           </div>
         </div>
       </Modal>)
@@ -254,7 +306,7 @@ class RightSideBar extends Component {
           footer={null} 
           // onOk={this.handleOk}
           // confirmLoading={confirmLoading}
-          // onCancel={this.handleCancel}
+          onCancel={() => this.hideModal('Password')}
         >
           
           <form noValidate>          
@@ -338,12 +390,9 @@ class RightSideBar extends Component {
     axios.post(`${API.ROOT_URL}/user/profile`, fd, config)
       .then(response => {
           let result = response.data.result
-          console.log('response is', result)
           this.props.update_user({picture: result.picture})                  
       }).catch(errors => {
-        if (errors.response.status === 401) this.props.logout_user()
-        console.log(errors.response.message)
-        
+        if (errors.response.status === 401) this.props.logout_user()        
       });
 
 

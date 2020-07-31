@@ -1559,6 +1559,13 @@ span {
   background-color: #ffba44;
 }
 
+.ant-form.ant-form-inline .ant-row.ant-form-item{
+  margin-bottom: 24px;
+}
+
+.ant-btn.btn.button.btn-primary.ant-btn-primary span, .ant-btn.btn.button.btn-primary.ant-btn-primary:hover span{
+  color: #fff;
+}
 /*--------------------------------------------------------------
 # detail property
 --------------------------------------------------------------*/

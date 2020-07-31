@@ -9,3 +9,4 @@ export { default as SectionOne } from "./SectionOne";
 export { default as SectionTen } from "./SectionTen";
 export { default as SectionThree } from "./SectionThree";
 export { default as SectionTwo } from "./SectionTwo";
+export { default as FloatLabel } from "./FloatLabel";
