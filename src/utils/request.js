@@ -25,10 +25,9 @@ const request = function (options, auth = false) {
   const userData = Cookies.getJSON("userData");
   const token = userData ? userData.token : ""; 
 
-  options.headers = {
-    "Content-Type": "application/json"
-  };
-
+  options.headers = options.headers || {}
+  options.headers["Content-Type"] = "application/json"
+  
   if (auth) {
     options.headers.Authorization = `Bearer ${token}`;
   }

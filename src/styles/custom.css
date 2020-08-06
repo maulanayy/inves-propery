@@ -279,6 +279,7 @@ span {
   padding: 0
 }
 
+
 .nav-menu a:hover,
 .nav-menu .active > a,
 .nav-menu li:hover > a {
@@ -1539,6 +1540,12 @@ span {
   object-fit: contain;
 }
 
+.ant-modal-title {
+  font-weight: bold;
+  font-family: LouisGeorgeCafe;
+  font-size: 20px;
+  padding: 5px;
+}
 .ant-progress-line {
   position: relative;
   width: 100%;
@@ -1996,6 +2003,24 @@ Note: Beware of modifying this element as it can break the animations - you shou
   font-style: normal;
   text-align: center;
   color: #ffffff;
+}
+
+
+.checkout-modal h3 span {
+  color: #000;
+  font-family: LouisGeorgeCafe;
+  font-weight: bold;
+}
+
+.checkout-modal .ant-modal-footer {
+  padding: 0;
+}
+
+.checkout-modal .ant-modal-footer button{
+  width: 100% !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  height: 40px;
 }
 
 @media (max-width: 767px) {

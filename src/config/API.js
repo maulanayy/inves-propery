@@ -1,5 +1,6 @@
 import { request } from "../utils/";
 
+const HOST_URL = 'core.invesproperti.id'
 const ROOT_URL = 'http://core.invesproperti.id/api/v1'
 // const useAuth = true;
 
@@ -37,6 +38,7 @@ const home = {
 };
 
 const project = {
+
   get: (cancelToken, params) =>
     request({
       url: `${ROOT_URL}/project`,
@@ -183,6 +185,18 @@ const paymentMethods = {
   ,
 }
 
+const transactions = {
+  getList: (params, cancelToken) => 
+    request({
+      url: `${ROOT_URL}/user/project-transaction`,
+      method: "GET",
+      params: params,
+      cancelToken
+      
+    })
+  ,
+}
+
 export default {
   ROOT_URL,
   home,
@@ -191,5 +205,6 @@ export default {
   account,
   masterdata,
   banks,
-  paymentMethods
+  paymentMethods,
+  transactions
 };

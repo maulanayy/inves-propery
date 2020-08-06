@@ -11,7 +11,10 @@ class Controller extends Component {
   state = {
     project: {},
     imgActive: {},
-    slot: null
+    slot: null,
+    imbal: 0,
+    total_roi_max: 0,
+    total_roi: 0
   }
 
   componentDidMount(){
@@ -42,18 +45,31 @@ class Controller extends Component {
       dataProject.result['mapUrl'] = _url
       let imgActive = dataProject.result.galleries && dataProject.result.galleries[0] || {}
 
-      this.setState({project: dataProject.result, imgActive: imgActive, slot: dataProject.share_count})      
+      
+      this.setState({project: dataProject.result, imgActive: imgActive, slot: 1}, () => {
+        this.calCulateReturn(1)
+      })      
     } catch (error) {
       console.error("error : ", error);
     }
   };
+
+  calCulateReturn = (value) => {
+    let project = this.state.project
+    let imbal = (parseFloat(project.roi) / 100) * parseFloat(project.per_share_value) * parseInt(value)
+    let total_roi = ((parseFloat(project.roi) / 100) * parseFloat(project.per_share_value) * value) + (parseInt(value) * parseFloat(project.per_share_value))
+    let total_roi_max = ((parseFloat(project.roi_max) / 100) * parseFloat(project.per_share_value) * value) + (parseInt(value) * parseFloat(project.per_share_value))
+    this.setState({imbal: imbal, total_roi: total_roi, total_roi_max: total_roi_max})
+  }
 
   setActiveImage = (e) => {
     this.setState({imgActive: e})
   }
 
   setSlotCount = (e) => {
-    this.setState({slot: e.target.value})
+    this.setState({slot: e}, () => {
+      this.calCulateReturn(e)
+    })
   }
 
   render(){
@@ -63,6 +79,10 @@ class Controller extends Component {
         imgActive={this.state.imgActive}
         setActiveImage={this.setActiveImage}
         setSlotCount={this.setSlotCount}
+        slot={this.state.slot}
+        imbal={this.state.imbal}
+        total_roi_max={this.state.total_roi_max}
+        total_roi={this.state.total_roi}
       />
     )
   }

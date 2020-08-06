@@ -4,6 +4,8 @@ import { Progress, InputNumber } from "antd";
 import { FileFilled } from "@ant-design/icons";
 import { images } from "../../config"
 import { NavLink } from "react-router-dom";
+import NumberFormat from 'react-number-format';
+import moment from 'moment';
 
 const View = (props) => {
   let project = props.project
@@ -21,7 +23,7 @@ const View = (props) => {
                 <div className="col-3" style={{height: 300, overflow: 'auto'}}>
                     { 
                     project.galleries && project.galleries.map((element, i) => (
-                      <img src={element['image_small_square']} className="mb-2 galery mini-galery" onClick={() => props.setActiveImage(element) }/>                      
+                      <img key={i} src={element['image_small_square']} className="mb-2 galery mini-galery" onClick={() => props.setActiveImage(element) }/>                      
                     ))
                     }
                 </div>
@@ -53,11 +55,11 @@ const View = (props) => {
                     <Progress percent={project.persentage} showInfo={false} className="mt-0" />
                   </div>
                   <div className="col sm-3 ml-3">
-                    <h2 className="mb-0 ">40</h2>
+                    <h2 className="mb-0 ">{parseInt(project.total_shares || "0") - parseInt(project.share_count || "0")}</h2>
                     Sisa Slot
                   </div>
                   <div className="col sm-3">
-                    <h2 className="mb-0">40</h2>
+                  <h2 className="mb-0">{moment(project.end_date).diff(moment(), 'days')}</h2>
                     Sisa Hari
                   </div>
                   <div className="col sm-3 mt-1">
@@ -70,33 +72,33 @@ const View = (props) => {
                     Jumlah slot
                     <InputNumber
                       min={1}
-                      max={10}
-                      defaultValue={project.share_count}
+                      max={parseInt(project.total_shares || "0") - parseInt(project.share_count || "0")}
+                      value={props.slot}
                       className="search"
                       onChange={(e) => props.setSlotCount(e)}
                     />
                   </div>
                   <div className="col sm-4">
                     <br />
-                    Harga 1 slot IDR 1.000.000
+                    Harga 1 slot <NumberFormat value={parseFloat(project.per_share_value)} displayType={'text'} thousandSeparator={true} prefix={'Rp'} />
                   </div>
                   <div className="col sm-4">
                     <br />
-                    Imbang Bagi Hasil 7,5% - 9%
+                  Imbang Bagi Hasil {project.roi}% - {project.roi_max}%
                   </div>
                 </div>
                 <div className="row mt-5">
                   <div className="col text-center">
                     <h2 className="mb-0">
-                      <span>IDR 4.000.000</span>
+                    <NumberFormat value={props.imbal} displayType={'text'} thousandSeparator={true} prefix={'Rp'} />
                     </h2>
-                    Imbal Hasil Investasi selama 6 Bulan
+                    Imbal Hasil Investasi selama {project.duration} Bulan
                   </div>
                 </div>
                 <div className="row mt-5">
                   <div className="col text-center">
                     <h5 className="mb-0">
-                      <span>IDR 4.350.000 - IDR 4.450.000</span>
+                      <span><NumberFormat value={props.total_roi} displayType={'text'} thousandSeparator={true} prefix={'Rp'} /> - <NumberFormat value={props.total_roi_max} displayType={'text'} thousandSeparator={true} prefix={'Rp'} /></span>
                     </h5>
                     Perkiraan Total Pengembalian
                   </div>
@@ -109,20 +111,8 @@ const View = (props) => {
               </div>
               <div className="developer mt-4">
                 Tentang Developer
-                <img
-                  src={images.delution_logo}
-                  style={{
-                    width: 150,
-                    objectFit: "contain",
-                    float: "right",
-                  }}
-                  alt=""
-                />
-                <p className="mt-3">
-                  <span>Vortiland - Delution Enterprise</span>
-                </p>
-                <div className="text-justify" dangerouslySetInnerHTML={{__html: unescape(project.specification)}} />
-                <a href="#">Cari Tahu Selengkapnya</a>
+                
+                <div className="text-justify" dangerouslySetInnerHTML={{__html: unescape(project.specification)}} />                
               </div>
             </div>
           </div>

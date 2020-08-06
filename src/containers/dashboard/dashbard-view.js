@@ -5,6 +5,7 @@ import {
   NavbarDashboard,
 } from "../../components";
 
+import { NavLink } from 'react-router-dom'
 import { Table } from "antd";
 // import bannerImg from "../../../public/assets/asset-25.png";
 
@@ -47,7 +48,8 @@ const dataSource = [
   },
 ];
 
-const View = () => {
+const View = (props) => {
+
   return (
     <React.Fragment>
       <div id="wrapper">
@@ -61,9 +63,9 @@ const View = () => {
               <p>
                 Kejar Mimpimu, <br />
                 Mulai Investasi Sekarang! <br />
-                <a href="#" className="banner-button">
+                <NavLink to="/properti" className="banner-button">
                   Mulai >
-                </a>
+                </NavLink>
               </p>
             </div>
             <div className="row">
@@ -94,7 +96,7 @@ const View = () => {
             <div className="row container">
               <div className="col-lg-11half card-info">
                 Riwayat Transaksi
-                <Table dataSource={dataSource} columns={columns} />
+                <Table dataSource={props.transactions} columns={columns} />
               </div>
             </div>
           </div>
