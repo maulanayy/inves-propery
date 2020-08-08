@@ -31,6 +31,7 @@ images.footer2 = require("../images/footer-2.png");
 images.howItWorks1 = require("../images/how-it-works-1.png");
 images.passwordSaved = require("../images/password-saved.png");
 images.handshake = require("../images/handshake.png");
+images.Lupa = require("../images/Lupa.jpg");
 
 
 export default images;

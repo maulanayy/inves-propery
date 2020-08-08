@@ -2,9 +2,13 @@ import React from "react";
 import { Navbar } from "../../components";
 import { NavLink } from "react-router-dom";
 import { images } from "../../config"
-import { Input, Button, Alert } from "antd";
+import { Input, Button, Alert, Form } from "antd";
 import LoadingOverlay from 'react-loading-overlay';
 
+const layout = {
+  labelCol: { span: 8 },
+  wrapperCol: { span: 28 },
+};
 
 const View = (props) => {
   return (
@@ -21,60 +25,68 @@ const View = (props) => {
                     <br />
                     Kembali
                   </h3>
-                  <form noValidate>
-                    {
-                      props.error_message == '' ? null : <div className="md-form mb-5">
-                      <Alert message={props.error_message} type="error" closable></Alert>
-                    </div>
-                    }
-                    
-                    <div className="md-form">
-                      <label>Email</label>
-                      <Input placeholder="Email" type="email" name="email" 
-                      className={props.validation ? (props.validation.email ? 'form-control is-valid' : 'form-control is-invalid') : 'form-control' } 
-                      onChange={(e) => props.textChanged('email', e.target.value)}
-                      />
+                  <Form                
+                    {...layout}
+                    layout={'vertical'}
+                    onFinish={(e) => props.onSubmit(e)}
+                    onFinishFailed={(e) => console.log(e)}
+                    >
                       {
-                      props.validation ? (props.validation.email ? '' : <div className='invalid-feedback'>Email tidak valid</div>) : '' 
-                      } 
+                        props.error_message == '' ? null : <div className="md-form mb-5">
+                        <Alert message={props.error_message} type="error" closable></Alert>
+                      </div>
+                      }
 
-                      
-                    </div>
-                    <div className="md-form mt-3">
-                      <label>Password</label>
-                      <Input.Password placeholder="Password" name="pass" 
-                      className={props.validation ? (props.validation.password ? 'form-control is-valid' : 'form-control is-invalid') : 'form-control' } 
-                      onChange={(e) => props.textChanged('password', e.target.value)} />
-                      
-                      {
-                      props.validation ? (props.validation.password ? '' : <div className='invalid-feedback'>Password panjangnya harus 8-16 karakter</div>) : '' 
-                      } 
-                    </div>
-                    <p className="forgot mt-4">
-                      {" "}
-                      <NavLink to="/forgot-password">
-                        <span>Lupa Password</span>
-                      </NavLink>
-                    </p>
-                    <div className="justify-content-center text-center">
-                      <br />
-                      <Button type="submit" 
-                      className={(props.validation && props.validation.email && props.validation.password) ? 'btn button' : 'btn button disabled'} 
-                      onClick={() => props.onSubmit()}
-                      >Masuk</Button>
-                      
-                      {/* <button type="submit" className="btn btn-primary button">
-                        Masuk
-                      </button> */}
-                      <br />
-                      <br />
-                      <br />
-                      Belum memiliki akun?
-                      <NavLink to="/register">
-                        <span> Daftar</span>
-                      </NavLink>
-                    </div>
-                  </form>
+                      <Form.Item 
+                        label="Email"
+                        name="email" 
+                        style={{marginBottom: '10px'}}
+                        rules={[
+                          {
+                            type: 'email',
+                            message: 'The input is not valid E-mail!',
+                          },
+                            {
+                            required: true,
+                            message: 'Please input email',
+                            },
+                        ]}>
+                        <Input placeholder="Masukan Email" className='form-control' />
+                      </Form.Item>
+                      <Form.Item 
+                        label="Password"
+                        name="password" 
+                        rules={[
+                            {
+                            required: true,
+                            message: 'Please input password',
+                            },
+                        ]}>
+                        <Input.Password placeholder="Masukan password" className='form-control' />
+                      </Form.Item>
+                      <p className="forgot mt-4">
+                        {" "}
+                        <NavLink to="/forgot-password">
+                          <span>Lupa Password</span>
+                        </NavLink>
+                      </p>
+                      <div className="justify-content-center text-center">
+                        <br />
+                        <Form.Item >
+                          
+                        <Button type="primary" htmlType="submit"
+                        className='btn button mb-5'
+                        >Masuk</Button>
+                        </Form.Item>
+                        
+                        <br />
+                        Belum memiliki akun?
+                        <NavLink to="/register">
+                          <span> Daftar</span>
+                        </NavLink>
+                      </div>
+                    </Form>
+                  
                 </div>
               </div>
               <div className="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2">

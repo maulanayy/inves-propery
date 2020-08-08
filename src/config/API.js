@@ -79,6 +79,13 @@ const account = {
       params: params,
       cancelToken,      
     }),
+  forgot : (cancelToken, params) => 
+    request({
+      url: `${ROOT_URL}/user/forgot-password`,
+      method: "POST",
+      params: params,
+      cancelToken,      
+    }),  
   login : (cancelToken, params) => 
     request({
       url: `${ROOT_URL}/user/login`,

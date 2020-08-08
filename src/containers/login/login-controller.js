@@ -13,37 +13,19 @@ import reducer_user from '../../config/api-reducers/user';
 class Login extends Component {
   state = {
     validation: null,
-    email: '',
-    password: '',
     error_message: '',
     isLoading: false
   }
 
-  textChanged = (field, value) => {
-    let validation = this.state.validation || {}
-    
-    this.setState({[field]: value})
-    switch(field){
-      case 'email': 
-        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        validation[field] = re.test(value)
-        this.setState({validation: validation})        
-        break;
-      case 'password': 
-        validation[field] = value.length >= 8
-        this.setState({validation: validation})        
-        break;
-    }    
-  }
-
-  onSubmit = async () => {
+  
+  onSubmit = async (values) => {
+    console.log(values)
     this.setState({isLoading: true})
-    const state = this.state
-    const params = {email: state.email, password: state.password}
+    const params = {email: values.email, password: values.password}
     const loginRequest = await API.account.login(false, params);
     const token = loginRequest.result && loginRequest.result.token 
     if(token){
-      this.setState({isLoading: false})
+      this.setState({isLoading: false, error_message: ''})
       this.props.login_user(loginRequest.result)
       document.location = '/'
     }else{
@@ -58,7 +40,6 @@ class Login extends Component {
       validation={this.state.validation}
       error_message={this.state.error_message}
       isLoading={this.state.isLoading}
-      textChanged={this.textChanged}
       onSubmit={this.onSubmit}
     />)
   }

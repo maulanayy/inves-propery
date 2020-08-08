@@ -498,6 +498,9 @@ span {
   text-align: right;
 }
 
+#section-one .forgot a {
+  color: #000;
+}
 #secton-one .back {
   text-decoration: none;
   color: #000000;
