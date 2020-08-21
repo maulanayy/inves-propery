@@ -27,7 +27,7 @@ class Login extends Component {
     if(token){
       this.setState({isLoading: false, error_message: ''})
       this.props.login_user(loginRequest.result)
-      document.location = '/'
+      document.location = '/dashboard'
     }else{
       this.setState({error_message: loginRequest.message, isLoading: false})
     }

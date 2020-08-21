@@ -4,10 +4,115 @@ import axios from "axios";
 import { API } from "../../config";
 import { connect } from 'react-redux';
 import moment from 'moment'
+import { Button } from "antd";
+
+const columns = [
+  {
+    title: "No",
+    dataIndex: "no",
+    key: "no",
+  },
+  {
+    title: "Tanggal",
+    dataIndex: "tanggal",
+    key: "tanggal",
+  },
+  {
+    title: "Tipe Transaksi",
+    dataIndex: "tipe_transaksi",
+    key: "tipe_transaksi",
+  },
+  {
+    title: "Nama Properti",
+    dataIndex: "nama_properti",
+    key: "nama_properti",
+  },
+  {
+    title: "Jumlah",
+    dataIndex: "jumlah",
+    key: "jumlah",
+  },
+];
+
 
 class Dashboard extends Component {
   state = {
-    transactions: []
+    transactions: [],
+    stepIndex: 0,
+    steps: [
+      {
+        target: '.withdraw',
+        title: 'Tutorial',
+        content: (
+          <div style={{textAlign: 'left'}}>
+            <p>Ini merupakan rangkuman tampilan dari saldo Kamu, termasuk di dalamnya saldo proyek, saldo affiliate, dan total saldo keseluruhan. </p>            
+          </div>
+        ),
+        disableBeacon: true,
+        placement: 'top',
+        styles: {
+          zIndex: 1200
+        },
+      },
+      {
+        target: '.withdraw-button',
+        title: 'Tutorial',
+        content: (
+          <div style={{textAlign: 'left'}}>
+            <p>Kamu dapat menyimpan keuntungan investasi yang Kamu dapat dan menggunakannya untuk investasi selanjutnya atau menarik uang tersebut.</p>            
+          </div>
+        ),
+        disableBeacon: true,
+        placement: 'top',
+        styles: {
+          zIndex: 1200
+        },
+      },
+      {
+        target: '.card-history-transaction',
+        title: 'Tutorial',
+        content: (
+          <div style={{textAlign: 'left'}}>
+            <p>Menampilkan riwayat transaksi yang telah Kamu lakukan secara detail.</p>            
+          </div>
+        ),
+        disableBeacon: true,
+        placement: 'top',
+        styles: {
+          zIndex: 1200
+        },
+      },
+      {
+        target: '.card-proyek-aktif',
+        title: 'Tutorial',
+        content: (
+          <div style={{textAlign: 'left'}}>
+            <p>Menampilkan jumlah proyek yang telah Kamu investasikan.</p>            
+          </div>
+        ),
+        disableBeacon: true,
+        placement: 'right',
+        styles: {
+          zIndex: 1200
+        },
+      },
+      
+      {
+        target: 'body .notification',
+        content: (
+          <div style={{textAlign: 'left'}}>
+            <p >Kamu akan mendapatkan notifikasi untuk promo, keberhasilan transaksi, dan informasi mengenai proyek yang kami jalankan.</p>
+          </div>
+        ),
+        disableBeacon: true,
+        placement: 'left',
+        styles: {
+          zIndex: 1200
+        }
+
+      },
+      ,            
+    ]
   }
 
   UNSAFE_componentWillReceiveProps = (nextProps) => {
@@ -52,6 +157,10 @@ class Dashboard extends Component {
 
     return(<View 
       transactions={state.transactions} 
+      steps={state.steps}
+      stepIndex={state.stepIndex}
+      columns={columns}
+      location={this.props.location}
       />)
   }
 }

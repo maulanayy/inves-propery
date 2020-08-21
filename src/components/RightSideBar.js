@@ -66,14 +66,6 @@ class RightSideBar extends Component {
       
       this.setState({user_banks: bankRequest.result.data})
       
-      // setTimeout(() => {
-      //   this.setState({
-      //     showModalPassword: false,          
-      //     showSuccessPassword: true
-      //   });
-      // }, 2000);
-    }else{
-      // this.setState({error_message: updateRequest.message, alert_type: 'error'})
     }
   }
 
@@ -185,7 +177,7 @@ class RightSideBar extends Component {
     }else{
       return(
         <div className="empty-bank-card" onClick={() => this.showModal('Banks') }>
-          <div class="col-xs-1 center-block text-center">
+          <div className="col-xs-1 center-block text-center">
             :( <br />
             Belum ada <br />
             rekening terdaftar
@@ -209,7 +201,7 @@ class RightSideBar extends Component {
         onFinishFailed={this.onFinishFailed}
       >
         {
-              state.alert_message_bank == null ? null : <div className="md-form mb-5">
+              state.alert_message_bank === null ? null : <div className="md-form mb-5">
               <Alert message={state.alert_message_bank} type={state.alert_type_bank} closable></Alert>
             </div>
             }
@@ -262,9 +254,9 @@ class RightSideBar extends Component {
         <div className="col-12">
           <div className="row">
             <div className="col-3">
-              <div class="col-xs-1 center-block text-center Rectangle-73">
+              <div className="col-xs-1 center-block text-center Rectangle-73">
                 <a href="#">
-                  <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-chevron-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> 
+                  <svg width="4em" height="4em" viewBox="0 0 16 16" className="bi bi-chevron-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> 
                     <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                   </svg>
                 </a>
@@ -272,13 +264,13 @@ class RightSideBar extends Component {
             </div>
             <div className="col-6">
               <div className="Rectangle-74">
-              <div class="col-xs-1 center-block text-center Rectangle-74-plus">+</div>
+              <div className="col-xs-1 center-block text-center Rectangle-74-plus">+</div>
               </div>
             </div>
             <div className="col-3">
-              <div class="col-xs-1 center-block text-center Rectangle-73">
+              <div className="col-xs-1 center-block text-center Rectangle-73">
                   <a href="#">
-                    <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="4em" height="4em" viewBox="0 0 16 16" className="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
                     </svg>
                   </a>
@@ -311,7 +303,7 @@ class RightSideBar extends Component {
           
           <form noValidate>          
             {
-              state.alert_message == null ? null : <div className="md-form mb-5">
+              state.alert_message === null ? null : <div className="md-form mb-5">
               <Alert message={state.alert_message} type={state.alert_type} closable></Alert>
             </div>
             }

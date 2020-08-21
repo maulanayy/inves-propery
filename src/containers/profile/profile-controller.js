@@ -154,9 +154,9 @@ class Profile extends Component {
   onUploaded = (e, name) => {
     let file = e.target.files[0]
     if(file) {
-      if(name == 'ktp'){
+      if(name === 'ktp'){
         this.setState({profile: {...this.state.profile, personal_id_image: file.name}})
-      }else if(name == 'npwp'){
+      }else if(name === 'npwp'){
         this.setState({profile: {...this.state.profile, tax_id_image: file.name}})
       }
       this.setState({[`${name}Uploader`]: file})

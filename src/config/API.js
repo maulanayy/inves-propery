@@ -1,6 +1,5 @@
 import { request } from "../utils/";
 
-const HOST_URL = 'core.invesproperti.id'
 const ROOT_URL = 'http://core.invesproperti.id/api/v1'
 // const useAuth = true;
 

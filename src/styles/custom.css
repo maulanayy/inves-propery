@@ -506,6 +506,45 @@ span {
   color: #000000;
 }
 
+.btn-link {
+  color: #000;
+}
+
+.tutorial-modal .button.back, .tutorial-modal .button.back:hover {
+  color: #4cbf9a;
+  font-size: 12px;
+  padding: 1px 20px 1px 20px;
+  margin: 10px;
+  border-radius: 20px;
+  background-color: #D9F1E9;
+  border-width: 0;
+}
+
+.tutorial-modal .button.next, .tutorial-modal .button.next:hover {
+  padding: 1px 20px 1px 20px;
+  margin: 5px;
+  border-radius: 20px;
+  background-color: #53BA93;
+  border-width: 0;
+}
+.tutorial-modal .button.next span, .tutorial-modal .button.bext:hover span{
+  color: #fff;
+  font-size: 12px;
+}
+.tutorial-modal .skip {
+  padding: 1px 20px 1px 20px;
+  margin: 5px;
+  border-width: 0;
+  box-shadow: none;
+}
+.tutorial-modal .skip span {
+  font-family: LouisGeorgeCafe;
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+}
+
+
 /* #section-one .col-lg-12 {
   margin-top: 10px;
 } */

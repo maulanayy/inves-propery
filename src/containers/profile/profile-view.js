@@ -39,7 +39,7 @@ const View = (props) => {
               <div className="col-lg-10 card-info pr-2">
                 <form>
                   {
-                      props.alert_message == null ? null : <div className="md-form mb-5">
+                      props.alert_message === null ? null : <div className="md-form mb-5">
                       <Alert message={props.alert_message} type={props.alert_type} closable></Alert>
                     </div>
                     }

@@ -7,7 +7,8 @@ import {
   ExportOutlined,
 } from "@ant-design/icons";
 import { images } from "../config";
-const LeftSideBar = () => {
+
+const LeftSideBar = (props) => {
   return (
     <nav className="left-sidebar">
       <ul className="nav flex-column">
@@ -46,10 +47,8 @@ const LeftSideBar = () => {
             Masih bingun dengan <br />
             tampilan Dashboard ?
           </p>
-          <a href="#" className="helper-button">
-            {" "}
-            Ulangi Tutorial{" "}
-          </a>
+          <button type="button" className="helper-button" onClick={() => props.onClickTutorial()}>Ulangi Tutorial</button>
+          
         </div>
       </div>
 

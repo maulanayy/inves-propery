@@ -34,7 +34,7 @@ const View = (props) => {
                   onFinishFailed={(e) => props.onSubmitFailed(e)}
                 >
                   {
-                      props.error_message == '' ? null : <div className="md-form mb-5">
+                      props.error_message === '' ? null : <div className="md-form mb-5">
                       <Alert message={props.error_message} type="error" closable></Alert>
                     </div>
                     }

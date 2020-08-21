@@ -19,7 +19,7 @@ class ForgotPassword extends Component {
     const params = {email: values.email}
     const loginRequest = await API.account.forgot(false, params);
     
-    if(loginRequest && loginRequest.status == 20){
+    if(loginRequest && loginRequest.status === 20){
       this.setState({isLoading: false, error_message: ''})
       Modal.success({
         content: loginRequest.message ,
